@@ -608,15 +608,15 @@
 
         <div class="project-entry">
           <div class="project-entry-title">
-            <span>1. THE GOAT — Sistema Automatizado de Gift Cards & RFID Tap-Beer</span>
+            <span>1. THE GOAT — Sistema Automatizado de Tarjetas de Regalo & RFID</span>
             <div class="project-entry-links">
-              <a href="https://the-goat-giftcards.vercel.app" target="_blank"><i class="fa-solid fa-globe"></i> Live Demo</a>
+              <a href="https://the-goat-giftcards.vercel.app" target="_blank"><i class="fa-solid fa-globe"></i> Ver aplicación</a>
             </div>
           </div>
           <div class="project-entry-desc">
-            <p><strong>Arquitectura:</strong> Aplicación Web Fullstack en producción (Next.js, React, TypeScript, Vercel) para venta de gift cards digitales y recarga de saldo a manillas RFID en bares de autoservicio cervecero <em>(Código privado/comercial)</em>.</p>
-            <p><strong>Seguridad & RPC:</strong> Supabase (PostgreSQL + RLS), procedimiento RPC atómico <code>redeem_gift_card</code> con bloqueo <code>FOR UPDATE</code> anti-concurrencia y tokens SHA-256 (24 bytes).</p>
-            <p><strong>PWA POS:</strong> Módulo POS con lector QR por cámara (<code>html5-qrcode</code>), Web Audio API, cerrojo anti-rebote y mailing híbrido (Gmail SMTP + Resend API).</p>
+            <p><strong>Arquitectura:</strong> Aplicación web en producción (Next.js, React, TypeScript, Vercel) para venta de tarjetas de regalo digitales y recarga de saldo a manillas RFID en bares de autoservicio <em>(Código comercial privado)</em>.</p>
+            <p><strong>Seguridad & Base de Datos:</strong> Supabase (PostgreSQL + RLS), procedimiento atómico <code>redeem_gift_card</code> con bloqueo <code>FOR UPDATE</code> anti-concurrencia y tokens criptográficos SHA-256.</p>
+            <p><strong>Punto de Venta PWA:</strong> Módulo de cajero con lector QR por cámara (<code>html5-qrcode</code>), Web Audio API, cerrojo anti-rebote y servicio de correos híbrido (Gmail SMTP + Resend API).</p>
           </div>
         </div>
 
@@ -624,28 +624,28 @@
           <div class="project-entry-title">
             <span>2. Sistema Robótico de Almacenamiento & AGV (AS/RS Logístico)</span>
             <div class="project-entry-links">
-              <a href="https://youtu.be/2pD4KcC07y4" target="_blank"><i class="fa-brands fa-youtube"></i> Video Demo</a>
+              <a href="https://youtu.be/2pD4KcC07y4" target="_blank"><i class="fa-brands fa-youtube"></i> Ver video</a>
             </div>
           </div>
           <div class="project-entry-desc">
-            <p><strong>Arquitectura:</strong> Software interactivo de simulación cinemática y monitoreo en Python/PyQt6 para prototipo de almacén automatizado con 3 brazos robóticos y plataforma móvil AGV <em>(Código privado)</em>.</p>
-            <p><strong>Control & Cinemática:</strong> Despacho directo HOME ➔ Casillero, reubicación coordinada entre estaciones, simulación de sensores RFID (A-E) y gestión de seguridad modal.</p>
+            <p><strong>Arquitectura:</strong> Software de simulación cinemática y monitoreo en Python y PyQt6 para prototipo de almacén automatizado con 3 brazos robóticos y plataforma móvil AGV <em>(Código privado)</em>.</p>
+            <p><strong>Control & Cinemática:</strong> Despacho directo inicio ➔ casillero, reubicación coordinada entre estaciones, simulación de sensores RFID y validaciones de seguridad.</p>
             <p><strong>Comunicaciones:</strong> Generación y parseo de tramas JSON de alta velocidad enviadas por puerto serial a microcontroladores.</p>
           </div>
         </div>
 
         <div class="project-entry">
           <div class="project-entry-title">
-            <span>3. Compukit Taller — Sistema PWA de Gestión Técnica Offline-First</span>
+            <span>3. Compukit Taller — Sistema PWA de Gestión Técnica</span>
             <div class="project-entry-links">
-              <a href="https://jose-beeb.github.io/compukit-taller/" target="_blank"><i class="fa-solid fa-globe"></i> App en Vivo</a>
+              <a href="https://jose-beeb.github.io/compukit-taller/" target="_blank"><i class="fa-solid fa-globe"></i> Ver aplicación</a>
               <a href="https://github.com/Jose-beeb/compukit-taller" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>
           </div>
           <div class="project-entry-desc">
-            <p><strong>Arquitectura:</strong> Progressive Web App (PWA) con Service Workers, LocalStorage sync resiliente y diseño adaptable.</p>
-            <p><strong>APIs & Cloud:</strong> Web Speech API para dictado de diagnósticos por voz, compresión Canvas de fotografías y backend serverless en Google Apps Script con Google Drive y Sheets.</p>
-            <p><strong>Automatización:</strong> Generación de comprobantes en PDF con jsPDF y notificaciones vía WhatsApp Deep Links.</p>
+            <p><strong>Arquitectura:</strong> Aplicación web progresiva (PWA) con Service Workers, sincronización sin conexión y diseño adaptable.</p>
+            <p><strong>Servicios & Integraciones:</strong> Dictado por voz de diagnósticos técnicos, compresión de fotografías de hardware y backend serverless en Google Apps Script conectado con Google Drive y Sheets.</p>
+            <p><strong>Automatización:</strong> Generación de comprobantes en PDF con jsPDF y notificaciones vía WhatsApp.</p>
           </div>
         </div>
 
@@ -653,23 +653,23 @@
           <div class="project-entry-title">
             <span>4. Dispositivo Robótico para Rehabilitación de Miembro Inferior (Rodilla)</span>
             <div class="project-entry-links">
-              <a href="https://youtu.be/54CjYQszOWI" target="_blank"><i class="fa-brands fa-youtube"></i> Video Demo</a>
+              <a href="https://youtu.be/54CjYQszOWI" target="_blank"><i class="fa-brands fa-youtube"></i> Ver video</a>
             </div>
           </div>
           <div class="project-entry-desc">
-            <p><strong>Hardware:</strong> Raspberry Pi 5 + ESP32, actuador NEMA 23 con transmisión por husillo de bolas, encoder magnético AS5600 y celda de carga HX711.</p>
-            <p><strong>Control e IA:</strong> Algoritmos de Control Difuso (Fuzzy Logic) para adaptación de carga activa/pasiva y clasificación biomecánica con Random Forest.</p>
+            <p><strong>Hardware:</strong> Raspberry Pi 5 + ESP32, motor NEMA 23 con transmisión por husillo de bolas, encoder magnético AS5600 y celda de carga HX711.</p>
+            <p><strong>Control e Inteligencia Artificial:</strong> Control difuso para adaptación de carga activa/pasiva y clasificación biomecánica con Random Forest.</p>
             <p><strong>Simulación:</strong> Modelado dinámico en MATLAB Simulink/Simscape con telemetría en tiempo real.</p>
           </div>
         </div>
 
         <div class="project-entry">
           <div class="project-entry-title">
-            <span>5. Lora Kipu — Red IoT AgriTech para Monitoreo Microclimático</span>
+            <span>5. Lora Kipu — Red IoT para Monitoreo Microclimático en Cultivos</span>
           </div>
           <div class="project-entry-desc">
             <p><strong>Arquitectura:</strong> Nodos sensoriales autónomos de ultra bajo consumo con microcontroladores ESP32 y transmisión LoRaWAN.</p>
-            <p><strong>Software & IA:</strong> Backend reactivo en Python (FastAPI), modelos predictivos de fitopatologías en cultivos de cacao y dashboards de telemetría.</p>
+            <p><strong>Software:</strong> Backend en Python (FastAPI), modelos predictivos de fitopatologías en cultivos de cacao y paneles de visualización.</p>
           </div>
         </div>
 
@@ -677,12 +677,12 @@
           <div class="project-entry-title">
             <span>6. Gemelo Digital & Sistema SCADA para Manufactura Automatizada</span>
             <div class="project-entry-links">
-              <a href="https://youtube.com/shorts/luxnUp_XqdI" target="_blank"><i class="fa-brands fa-youtube"></i> Video Demo</a>
+              <a href="https://youtube.com/shorts/luxnUp_XqdI" target="_blank"><i class="fa-brands fa-youtube"></i> Ver video</a>
             </div>
           </div>
           <div class="project-entry-desc">
-            <p><strong>Simulación & PLC:</strong> Simulación integral en Factory I/O conectada vía OPC UA con PLC Siemens S7-1200 / S7-1500 programado en SCL modular.</p>
-            <p><strong>Supervisión:</strong> Dashboard SCADA en Ignition Designer con visualización de estados y métricas operativas (KPIs/OEE).</p>
+            <p><strong>Simulación & PLC:</strong> Simulación integral en Factory I/O conectada vía OPC UA con controlador Siemens S7-1200 / S7-1500 programado en SCL modular.</p>
+            <p><strong>Supervisión:</strong> Panel SCADA en Ignition Designer con visualización de estados y métricas operativas de producción.</p>
           </div>
         </div>
       </section>
