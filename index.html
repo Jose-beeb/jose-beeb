@@ -57,6 +57,7 @@
   <main>
     <!-- Hero Section -->
     <section class="hero-section" id="hero">
+      <canvas id="particles-canvas" class="hero-particles" aria-hidden="true"></canvas>
       <div class="container hero-container">
         <div class="hero-content">
           <div class="hero-profile-row">
@@ -159,25 +160,25 @@
         </div>
 
         <div class="about-grid">
-          <div class="about-card feature-card">
+          <div class="about-card feature-card reveal-on-scroll">
             <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
             <h3>Sistemas Embebidos & IoT</h3>
             <p>Diseño de redes sensoriales autónomas de bajo consumo con ESP32, Raspberry Pi 5 y tecnología LoRaWAN. Integración de buses I2C, SPI y UART con telemetría en la nube.</p>
           </div>
 
-          <div class="about-card feature-card">
+          <div class="about-card feature-card reveal-on-scroll">
             <div class="card-icon"><i class="fa-solid fa-industry"></i></div>
             <h3>Automatización & SCADA</h3>
             <p>Programación modular en SCL para PLCs Siemens S7-1200/1500, simulación de gemelos digitales con Factory I/O y desarrollo de interfaces HMI/SCADA industriales.</p>
           </div>
 
-          <div class="about-card feature-card">
+          <div class="about-card feature-card reveal-on-scroll">
             <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
             <h3>Robótica & Control Inteligente</h3>
             <p>Modelado dinámico y validación biomecánica en Simulink/Simscape. Aplicación de algoritmos de Control Difuso y Machine Learning para rehabilitación y robótica adaptativa.</p>
           </div>
 
-          <div class="about-card feature-card">
+          <div class="about-card feature-card reveal-on-scroll">
             <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
             <h3>Liderazgo & Gestión Global</h3>
             <p>Certificado por la Universidad de Cambridge en Liderazgo Global. Gestión y articulación de equipos multidisciplinarios en el ecosistema internacional de IEEE.</p>
@@ -197,7 +198,7 @@
 
         <div class="skills-wrapper">
           <!-- Category 1 -->
-          <div class="skills-category">
+          <div class="skills-category reveal-on-scroll">
             <div class="category-header">
               <i class="fa-solid fa-sliders"></i>
               <h3>Automatización & Control</h3>
@@ -215,7 +216,7 @@
           </div>
 
           <!-- Category 2 -->
-          <div class="skills-category">
+          <div class="skills-category reveal-on-scroll">
             <div class="category-header">
               <i class="fa-solid fa-wifi"></i>
               <h3>Sistemas Embebidos & IoT</h3>
@@ -232,7 +233,7 @@
           </div>
 
           <!-- Category 3 -->
-          <div class="skills-category">
+          <div class="skills-category reveal-on-scroll">
             <div class="category-header">
               <i class="fa-solid fa-brain"></i>
               <h3>Control, IA & Robótica</h3>
@@ -248,7 +249,7 @@
           </div>
 
           <!-- Category 4 -->
-          <div class="skills-category">
+          <div class="skills-category reveal-on-scroll">
             <div class="category-header">
               <i class="fa-solid fa-cubes"></i>
               <h3>CAD/CAM, Electrónica & Software</h3>
@@ -291,7 +292,7 @@
         <div class="projects-grid" id="projects-grid">
 
           <!-- Project: THE GOAT -->
-          <article class="project-card" data-category="pwa">
+          <article class="project-card reveal-on-scroll" data-category="pwa">
             <div class="project-card-banner has-photo">
               <img src="assets/images/the-goat.png" alt="THE GOAT Platform" class="project-banner-img" onclick="openImageModal(this.src, 'THE GOAT — Sistema Gift Cards & RFID Tap-Beer')">
               <div class="project-badge"><i class="fa-solid fa-beer-mug-empty"></i> Fullstack & RFID</div>
@@ -328,7 +329,7 @@
           </article>
 
           <!-- Project: Sistema Robótico de Almacenamiento & AGV -->
-          <article class="project-card" data-category="robotics">
+          <article class="project-card reveal-on-scroll" data-category="robotics">
             <div class="project-card-banner has-photo">
               <img src="assets/images/agv-storage.png" alt="Sistema Robótico Storage AGV" class="project-banner-img" onclick="openImageModal(this.src, 'Sistema Robótico de Almacenamiento & AGV (AS/RS Logístico)')">
               <div class="project-badge"><i class="fa-solid fa-robot"></i> AS/RS + AGV Logístico</div>
@@ -365,7 +366,7 @@
           </article>
           
           <!-- Project: Compukit Taller -->
-          <article class="project-card" data-category="pwa">
+          <article class="project-card reveal-on-scroll" data-category="pwa">
             <div class="project-card-banner has-photo">
               <img src="assets/images/compukit.png" alt="Compukit Taller PWA" class="project-banner-img" onclick="openImageModal(this.src, 'Compukit Taller — Sistema PWA de Gestión Técnica')">
               <div class="project-badge"><i class="fa-solid fa-mobile-screen"></i> PWA Offline-First</div>
@@ -404,7 +405,7 @@
           </article>
 
           <!-- Project: Rehabilitación de Rodilla -->
-          <article class="project-card" data-category="robotics">
+          <article class="project-card reveal-on-scroll" data-category="robotics">
             <div class="project-card-banner has-photo">
               <img src="assets/images/knee-rehab.png" alt="Dispositivo Robótico de Rodilla" class="project-banner-img" onclick="openImageModal(this.src, 'Dispositivo Robótico para Rehabilitación de Rodilla')">
               <div class="project-badge"><i class="fa-solid fa-person-walking"></i> Biomecatrónica</div>
@@ -440,7 +441,7 @@
           </article>
 
           <!-- Project: Lora Kipu -->
-          <article class="project-card" data-category="iot">
+          <article class="project-card reveal-on-scroll" data-category="iot">
             <div class="project-card-banner has-photo">
               <img src="assets/images/lora-kipu.jpg" alt="Lora Kipu IoT Node (Render Conceptual)" class="project-banner-img" onclick="openImageModal(this.src, 'Lora Kipu — Red IoT Microclimática (Render Conceptual)')">
               <div class="project-badge"><i class="fa-solid fa-seedling"></i> AgriTech & IoT <span style="opacity:0.75; font-size:0.68rem; margin-left:4px;">(Render)</span></div>
@@ -468,7 +469,7 @@
           </article>
 
           <!-- Project: Gemelo Digital & SCADA -->
-          <article class="project-card" data-category="automation">
+          <article class="project-card reveal-on-scroll" data-category="automation">
             <div class="project-card-banner has-photo">
               <img src="assets/images/scada-twin1.png" alt="Gemelo Digital SCADA" class="project-banner-img" id="scada-main-img" onclick="openImageModal(this.src, 'Gemelo Digital & SCADA de Manufactura')">
               <div class="project-badge"><i class="fa-solid fa-gears"></i> Industria 4.0</div>
@@ -511,7 +512,7 @@
           </article>
 
           <!-- Project: Horno CIDFAE -->
-          <article class="project-card" data-category="aerospace">
+          <article class="project-card reveal-on-scroll" data-category="aerospace">
             <div class="project-card-banner has-photo">
               <img src="assets/images/cidfae-oven.png" alt="Horno de Curado CIDFAE" class="project-banner-img" id="cidfae-main-img" onclick="openImageModal(this.src, 'Reacondicionamiento de Horno de Curado (CIDFAE)')">
               <div class="project-badge"><i class="fa-solid fa-plane-departure"></i> I+D Aeroespacial</div>
@@ -568,7 +569,7 @@
         <div class="timeline-container">
           
           <!-- Item 1 -->
-          <div class="timeline-item">
+          <div class="timeline-item reveal-on-scroll">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
@@ -583,7 +584,7 @@
           </div>
 
           <!-- Item 2 -->
-          <div class="timeline-item">
+          <div class="timeline-item reveal-on-scroll">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
@@ -598,7 +599,7 @@
           </div>
 
           <!-- Item 3 -->
-          <div class="timeline-item">
+          <div class="timeline-item reveal-on-scroll">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
@@ -613,7 +614,7 @@
           </div>
 
           <!-- Item 4 -->
-          <div class="timeline-item">
+          <div class="timeline-item reveal-on-scroll">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
@@ -628,7 +629,7 @@
           </div>
 
           <!-- Item 5 -->
-          <div class="timeline-item">
+          <div class="timeline-item reveal-on-scroll">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
@@ -655,7 +656,7 @@
         </div>
 
         <div class="certs-grid">
-          <div class="cert-card">
+          <div class="cert-card reveal-on-scroll">
             <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
             <div class="cert-info">
               <h4>Global Leadership & Business Certification</h4>
@@ -663,7 +664,7 @@
             </div>
           </div>
 
-          <div class="cert-card">
+          <div class="cert-card reveal-on-scroll">
             <div class="cert-icon"><i class="fa-solid fa-handshake"></i></div>
             <div class="cert-info">
               <h4>Taller Internacional EMPRETEC</h4>
@@ -671,7 +672,7 @@
             </div>
           </div>
 
-          <div class="cert-card">
+          <div class="cert-card reveal-on-scroll">
             <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
             <div class="cert-info">
               <h4>Programa LÍDER LAB 2026</h4>
@@ -679,7 +680,7 @@
             </div>
           </div>
 
-          <div class="cert-card">
+          <div class="cert-card reveal-on-scroll">
             <div class="cert-icon"><i class="fa-solid fa-cube"></i></div>
             <div class="cert-info">
               <h4>Multibody Simulation Onramp</h4>
@@ -693,7 +694,7 @@
     <!-- Contact Section -->
     <section class="section contact-section" id="contact">
       <div class="container">
-        <div class="contact-card">
+        <div class="contact-card reveal-on-scroll">
           <div class="contact-header text-center">
             <span class="section-tag">Comuniquémonos</span>
             <h2 class="section-title">¿Tenés un proyecto o querés sumar talento a tu equipo?</h2>

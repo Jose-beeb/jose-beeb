@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initProjectFilters();
   initSmoothScroll();
+  initScrollReveal();
+  initHeroParticles();
 });
 
 /**
@@ -68,14 +70,25 @@ function initMobileMenu() {
 
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      const icon = menuToggle.querySelector('i');
-      if (icon) {
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-      }
+      closeMobileNav();
     });
   });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      closeMobileNav();
+    }
+  });
+
+  function closeMobileNav() {
+    navMenu.classList.remove('active');
+    const icon = menuToggle.querySelector('i');
+    if (icon) {
+      icon.classList.remove('fa-xmark');
+      icon.classList.add('fa-bars');
+    }
+  }
 }
 
 /**
@@ -277,4 +290,190 @@ function swapMainImage(targetImgId, newSrc) {
     });
   }
 }
+
+/**
+ * Initialize IntersectionObserver for Scroll Reveal Animations
+ */
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  if (!revealElements.length) return;
+
+  // Fallback for older browsers
+  if (!('IntersectionObserver' in window)) {
+    revealElements.forEach((el) => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+}
+
+/**
+ * Cyberphysical Connected Nodes Canvas Animation (Hero Background)
+ */
+function initHeroParticles() {
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  // Check user preference for reduced motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  let width = (canvas.width = canvas.parentElement.offsetWidth);
+  let height = (canvas.height = canvas.parentElement.offsetHeight);
+
+  const particles = [];
+  const isMobile = window.innerWidth < 768;
+  const particleCount = isMobile ? 22 : 45;
+  const maxDistance = isMobile ? 90 : 130;
+
+  const mouse = {
+    x: null,
+    y: null,
+    radius: 120
+  };
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.7;
+      this.vy = (Math.random() - 0.5) * 0.7;
+      this.radius = Math.random() * 1.8 + 1.2;
+      this.baseAlpha = Math.random() * 0.4 + 0.3;
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      // Bounce on edges
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+
+      // Mouse subtle interaction on desktop
+      if (mouse.x !== null && mouse.y !== null && !isMobile) {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.radius) {
+          const force = (mouse.radius - dist) / mouse.radius;
+          this.x -= (dx / dist) * force * 1.5;
+          this.y -= (dy / dist) * force * 1.5;
+        }
+      }
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0, 242, 254, ${this.baseAlpha})`;
+      ctx.shadowColor = '#00f2fe';
+      ctx.shadowBlur = 6;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+  }
+
+  // Create initial particles
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  let animationFrameId = null;
+  let isHeroVisible = true;
+
+  function animate() {
+    if (!isHeroVisible) return;
+
+    ctx.clearRect(0, 0, width, height);
+
+    // Draw connecting lines between close particles
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < maxDistance) {
+          const alpha = (1 - dist / maxDistance) * 0.22;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(0, 242, 254, ${alpha})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Update and draw each particle
+    particles.forEach((p) => {
+      p.update();
+      p.draw();
+    });
+
+    animationFrameId = requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // Resize listener with debounce
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+    }, 150);
+  });
+
+  // Track mouse on hero container
+  const heroSection = document.getElementById('hero');
+  if (heroSection) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      mouse.x = null;
+      mouse.y = null;
+    });
+
+    // Pause canvas animation when hero is not visible in viewport to save CPU/battery
+    if ('IntersectionObserver' in window) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          isHeroVisible = entry.isIntersecting;
+          if (isHeroVisible && !animationFrameId) {
+            animate();
+          } else if (!isHeroVisible && animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+          }
+        });
+      }, { threshold: 0.05 });
+
+      heroObserver.observe(heroSection);
+    }
+  }
+}
+
 
