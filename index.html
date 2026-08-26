@@ -42,9 +42,13 @@
         <a href="#about" class="nav-link" data-i18n="nav.about">Sobre Mí</a>
         <a href="#skills" class="nav-link" data-i18n="nav.skills">Habilidades</a>
         <a href="#projects" class="nav-link" data-i18n="nav.projects">Proyectos</a>
+        <a href="#flipbook" class="nav-link" data-i18n="nav.flipbook">Flipbook 3D</a>
         <a href="#experience" class="nav-link" data-i18n="nav.experience">Experiencia</a>
         <a href="#leadership" class="nav-link" data-i18n="nav.leadership">Liderazgo</a>
         <a href="#contact" class="nav-link" data-i18n="nav.contact">Contacto</a>
+        <button class="btn-nav-game" id="btn-open-game-nav" title="Abrir Minijuego de Pares Mecatrónicos">
+          <i class="fa-solid fa-gamepad"></i> <span>Juego</span>
+        </button>
         <a href="./cv.html" class="btn-nav-cv" target="_blank"><i class="fa-solid fa-file-lines"></i> <span data-i18n="nav.cv">Curriculum</span></a>
       </nav>
 
@@ -68,8 +72,21 @@
       <div class="container hero-container">
         <div class="hero-content">
           <div class="hero-profile-row">
-            <div class="profile-avatar-wrapper">
-              <img src="assets/images/profile.png" alt="José Acuña" class="profile-avatar-img" onerror="this.onerror=null; this.src='https://avatars.githubusercontent.com/u/171995231?v=4';">
+            <!-- 360 Profile Flip Card (Formal / Informal) -->
+            <div class="profile-360-container" id="profile-360" title="Click para girar 360° entre perfil Formal e Informal">
+              <div class="profile-360-inner" id="profile-360-inner">
+                <!-- Front: Formal Profile -->
+                <div class="profile-360-face profile-face-formal">
+                  <img src="assets/images/profile.png" alt="José Acuña - Perfil Formal" class="profile-avatar-img" onerror="this.onerror=null; this.src='https://avatars.githubusercontent.com/u/171995231?v=4';">
+                  <span class="profile-mode-badge formal">Formal</span>
+                </div>
+                <!-- Back: Informal Profile (Leader IEEE / Tech Explorer) -->
+                <div class="profile-360-face profile-face-informal">
+                  <img src="assets/images/profile-informal.jpg" alt="José Acuña - Perfil Informal" class="profile-avatar-img" onerror="this.onerror=null; this.src='assets/images/profile-informal.png';">
+                  <span class="profile-mode-badge informal">Informal</span>
+                </div>
+              </div>
+              <div class="profile-rotate-hint"><i class="fa-solid fa-rotate"></i> 360°</div>
             </div>
             <div>
               <h2 style="font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 2px;" data-i18n="hero.name">José Acuña</h2>
@@ -557,9 +574,16 @@
                 <span>Electricidad Industrial</span>
               </div>
             </div>
-          </article>
-
         </div>
+
+        <!-- Load More / Toggle Button -->
+        <div class="projects-toggle-container">
+          <button class="btn btn-outline-cyan" id="btn-toggle-projects">
+            <span id="toggle-projects-text" data-i18n="projects.btn.show_more">Ver más proyectos</span>
+            <i class="fa-solid fa-chevron-down" id="toggle-projects-icon"></i>
+          </button>
+        </div>
+
       </div>
     </section>
 
@@ -697,6 +721,77 @@
       </div>
     </section>
 
+    <!-- Flipbook 3D Editorial Section -->
+    <section class="section flipbook-section" id="flipbook">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag" data-i18n="flipbook.tag">Bitácora Editorial 3D</span>
+          <h2 class="section-title" data-i18n="flipbook.title">Catálogo Táctil de Ingeniería & I+D</h2>
+          <p class="section-description" data-i18n="flipbook.description">
+            Experiencia editorial interactiva tipo libro abierto. Deslizá o arrastrá las hojas con el ratón o en pantalla táctil para hojear los capítulos técnicos.
+          </p>
+        </div>
+
+        <div class="flipbook-container" id="flipbook-touch-zone">
+          <div class="flipbook-book" id="flipbook-book">
+            <!-- Center Spine Binding -->
+            <div class="flipbook-spine" aria-hidden="true"></div>
+
+            <!-- Left Spread Page (Context) -->
+            <div class="flipbook-page-side side-left" id="fb-left-page">
+              <div class="fb-page-header">
+                <span class="fb-chapter" id="fb-left-chapter">CAPÍTULO I</span>
+                <span class="fb-page-num" id="fb-left-num">01</span>
+              </div>
+              <div class="fb-page-body">
+                <div class="fb-tag" id="fb-left-tag">Sistemas Embebidos</div>
+                <h3 class="fb-title" id="fb-left-title">Dispositivo Robótico de Rodilla</h3>
+                <p class="fb-text" id="fb-left-text">
+                  Diseño mecatrónico para rehabilitación activa/pasiva con control de fuerza y posición angular en tiempo real mediante sensor AS5600 y celda de carga HX711.
+                </p>
+                <div class="fb-feature-list" id="fb-left-features">
+                  <div><i class="fa-solid fa-microchip"></i> ESP32 + Raspberry Pi 5</div>
+                  <div><i class="fa-solid fa-brain"></i> Algoritmo Random Forest</div>
+                </div>
+              </div>
+              <div class="fb-page-footer">
+                <span>José Andrés Acuña • Portfolio 2026</span>
+              </div>
+            </div>
+
+            <!-- Right Spread Page (Active Turned Page with 3D Effect) -->
+            <div class="flipbook-page-side side-right" id="fb-right-page">
+              <div class="fb-page-header">
+                <span class="fb-chapter" id="fb-right-chapter">CAPÍTULO II</span>
+                <span class="fb-page-num" id="fb-right-num">02</span>
+              </div>
+              <div class="fb-page-body">
+                <div class="fb-tag" id="fb-right-tag">IoT & Agricultura</div>
+                <h3 class="fb-title" id="fb-right-title">Lora Kipu — Red Microclimática</h3>
+                <p class="fb-text" id="fb-right-text">
+                  Monitoreo ambiental autónomo de bajo consumo para detección temprana de fitopatologías en cultivos de cacao mediante protocolo LoRaWAN.
+                </p>
+                <div class="fb-feature-list" id="fb-right-features">
+                  <div><i class="fa-solid fa-wifi"></i> Nodos LoRaWAN de Largo Alcance</div>
+                  <div><i class="fa-solid fa-server"></i> Microservicios FastAPI</div>
+                </div>
+              </div>
+              <div class="fb-page-footer">
+                <span>Deslizá para hojear ➔</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flipbook Navigation Bar -->
+          <div class="flipbook-nav-controls">
+            <button class="btn-fb-nav" id="btn-fb-prev" title="Página Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <span class="fb-indicator-text" id="fb-indicator-text">Spread 1 de 3</span>
+            <button class="btn-fb-nav" id="btn-fb-next" title="Página Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="section contact-section" id="contact">
       <div class="container">
@@ -782,6 +877,41 @@
         <!-- iframe injected by main.js -->
       </div>
       <div class="video-modal-caption" id="video-caption"></div>
+    </div>
+  </div>
+
+  <!-- Memory Matching Game Modal (Juego de Pares con .fade-out y .fade-in) -->
+  <div class="memory-game-modal hidden" id="memory-game-modal">
+    <div class="memory-game-card">
+      <div class="game-header">
+        <div class="game-title-group">
+          <i class="fa-solid fa-gamepad text-cyan"></i>
+          <div>
+            <h3>Juego de Pares: Stack Mecatrónico</h3>
+            <p>Emparejá las tecnologías. Al acertar, las cartas se desvanecen suavemente en su lugar.</p>
+          </div>
+        </div>
+        <button class="btn-close-game" id="btn-close-game"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="game-stats-bar">
+        <div class="game-stat"><span class="stat-lbl">Aciertos:</span> <strong id="game-matches" class="text-cyan">0 / 4</strong></div>
+        <div class="game-stat"><span class="stat-lbl">Intentos:</span> <strong id="game-moves">0</strong></div>
+        <div class="game-stat"><span class="stat-lbl">Tiempo:</span> <strong id="game-timer">00:00</strong></div>
+        <button class="btn-restart-game" id="btn-restart-game" title="Reiniciar Partida"><i class="fa-solid fa-rotate-right"></i></button>
+      </div>
+
+      <!-- Game Cards Grid -->
+      <div class="game-grid" id="game-grid">
+        <!-- Injected via JavaScript with fade-out / fade-in logic in-place -->
+      </div>
+
+      <div class="game-win-banner hidden" id="game-win-banner">
+        <i class="fa-solid fa-trophy win-trophy"></i>
+        <h4>¡Excelente Trabajo!</h4>
+        <p>Completaste todos los pares mecatrónicos con precisión y memoria técnica.</p>
+        <button class="btn btn-primary" id="btn-play-again">Jugar de Nuevo</button>
+      </div>
     </div>
   </div>
 

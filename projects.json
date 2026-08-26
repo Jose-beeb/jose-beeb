@@ -1,0 +1,302 @@
+[
+  {
+    "id": "goat",
+    "category": "pwa",
+    "image": "assets/images/the-goat.png",
+    "badgeIcon": "fa-solid fa-beer-mug-empty",
+    "badgeText": {
+      "es": "Plataforma Web & RFID",
+      "en": "Web Platform & RFID"
+    },
+    "title": {
+      "es": "THE GOAT — Sistema Gift Cards & RFID Tap-Beer",
+      "en": "THE GOAT — Gift Cards & RFID Tap-Beer System"
+    },
+    "liveDemo": "https://the-goat-giftcards.vercel.app",
+    "videoDemo": null,
+    "repoUrl": null,
+    "isPrivate": true,
+    "description": {
+      "es": "Plataforma web en producción para venta online de tarjetas de regalo digitales, generación criptográfica SHA-256 y aplicación PWA para cajeros con escáner QR anti-rebote para abono de saldo a manillas RFID en bares de autoservicio.",
+      "en": "Production web platform for digital gift cards sales, SHA-256 cryptographic token generation, and cashier PWA POS with anti-bounce QR scanner for RFID wristband balance top-up in self-service tap-rooms."
+    },
+    "highlights": [
+      {
+        "icon": "fa-solid fa-globe",
+        "es": "<strong>Producción:</strong> Desplegado en Vercel (the-goat-giftcards.vercel.app)",
+        "en": "<strong>Production:</strong> Deployed on Vercel (the-goat-giftcards.vercel.app)"
+      },
+      {
+        "icon": "fa-solid fa-shield-halved",
+        "es": "<strong>Seguridad & Base de Datos:</strong> Supabase (PostgreSQL + RLS + procedimiento atómico con bloqueo FOR UPDATE)",
+        "en": "<strong>Security & DB:</strong> Supabase (PostgreSQL + RLS + atomic RPC with FOR UPDATE lock)"
+      },
+      {
+        "icon": "fa-solid fa-qrcode",
+        "es": "<strong>PWA Punto de Venta:</strong> Escáner QR por cámara con cerrojo atómico y Web Audio API",
+        "en": "<strong>Cashier POS PWA:</strong> Camera QR scanner with atomic mutex and Web Audio API"
+      }
+    ],
+    "techTags": ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PWA", "Vercel"]
+  },
+  {
+    "id": "storage-agv",
+    "category": "robotics",
+    "image": "assets/images/agv-storage.png",
+    "badgeIcon": "fa-solid fa-robot",
+    "badgeText": {
+      "es": "Almacén Automatizado + AGV",
+      "en": "Automated AS/RS + AGV"
+    },
+    "title": {
+      "es": "Sistema Robótico de Almacenamiento (Storage & AGV)",
+      "en": "Robotic Storage & AGV System (AS/RS Logistics)"
+    },
+    "liveDemo": null,
+    "videoDemo": "2pD4KcC07y4",
+    "repoUrl": null,
+    "isPrivate": true,
+    "description": {
+      "es": "Simulador cinemático y suite de control en Python y PyQt6 para prototipo logístico automatizado con 3 brazos robóticos, casilleros curvados y plataforma móvil AGV sobre pista central.",
+      "en": "Kinematic simulator and control GUI in Python & PyQt6 for automated warehouse logistics with 3 robotic arms, 9 curved slots, and AGV platform on central track."
+    },
+    "highlights": [
+      {
+        "icon": "fa-brands fa-youtube",
+        "es": "<strong>Video:</strong> Ver Funcionamiento en YouTube",
+        "en": "<strong>Video:</strong> Watch Demo on YouTube"
+      },
+      {
+        "icon": "fa-solid fa-shuffle",
+        "es": "<strong>Operaciones:</strong> Despacho directo inicio ➔ casillero y reubicación coordinada",
+        "en": "<strong>Operations:</strong> Direct dispatch HOME ➔ slot and inter-station relocation"
+      },
+      {
+        "icon": "fa-solid fa-tags",
+        "es": "<strong>Simulación RFID:</strong> Sensor virtual para validación de lógica sin hardware físico",
+        "en": "<strong>RFID Simulation:</strong> Virtual tags for logic verification without physical hardware"
+      },
+      {
+        "icon": "fa-solid fa-network-wired",
+        "es": "<strong>Comunicaciones:</strong> Generación y parseo de tramas JSON para microcontrolador serial",
+        "en": "<strong>Comms:</strong> JSON serial frame generator and parser for microcontrollers"
+      }
+    ],
+    "techTags": ["Python", "PyQt6", "Cinemática Robótica", "AGV", "Serial JSON"]
+  },
+  {
+    "id": "compukit",
+    "category": "pwa",
+    "image": "assets/images/compukit.png",
+    "badgeIcon": "fa-solid fa-mobile-screen",
+    "badgeText": {
+      "es": "PWA & Modo Offline",
+      "en": "PWA & Offline Mode"
+    },
+    "title": {
+      "es": "Compukit Taller — Sistema de Gestión Técnica",
+      "en": "Compukit Workshop — Technical Management PWA"
+    },
+    "liveDemo": "https://jose-beeb.github.io/compukit-taller/",
+    "videoDemo": null,
+    "repoUrl": "https://github.com/Jose-beeb/compukit-taller",
+    "isPrivate": false,
+    "description": {
+      "es": "Aplicación web progresiva para recepción y seguimiento de soporte técnico de hardware con arquitectura sin conexión, dictado por voz y sincronización en la nube.",
+      "en": "Progressive web application for hardware technical support tracking with offline-first architecture, voice dictation, and Google cloud sync."
+    },
+    "highlights": [
+      {
+        "icon": "fa-solid fa-globe",
+        "es": "<strong>Enlace en vivo:</strong> jose-beeb.github.io/compukit-taller",
+        "en": "<strong>Live Demo:</strong> jose-beeb.github.io/compukit-taller"
+      },
+      {
+        "icon": "fa-solid fa-microphone-lines",
+        "es": "<strong>Entrada:</strong> Dictado por voz con Web Speech API y captura de cámara",
+        "en": "<strong>Input:</strong> Voice dictation with Web Speech API and camera snapshot"
+      },
+      {
+        "icon": "fa-solid fa-cloud-arrow-up",
+        "es": "<strong>Sincronización:</strong> Cola local en LocalStorage conectada con Google Apps Script y Drive",
+        "en": "<strong>Sync:</strong> LocalStorage queue connected to Google Apps Script and Drive"
+      }
+    ],
+    "techTags": ["PWA", "JavaScript ES6+", "Google Apps Script", "Web Speech API", "jsPDF", "LocalStorage Sync"]
+  },
+  {
+    "id": "knee-rehab",
+    "category": "robotics",
+    "image": "assets/images/knee-rehab.png",
+    "badgeIcon": "fa-solid fa-person-walking",
+    "badgeText": {
+      "es": "Biomecatrónica & Control",
+      "en": "Biomechatronics & Control"
+    },
+    "title": {
+      "es": "Dispositivo Robótico para Rehabilitación de Rodilla",
+      "en": "Robotic Knee Rehabilitation Device"
+    },
+    "liveDemo": null,
+    "videoDemo": "54CjYQszOWI",
+    "repoUrl": null,
+    "isPrivate": false,
+    "description": {
+      "es": "Sistema mecatrónico de rehabilitación activa y pasiva con control de fuerza y posición angular en tiempo real, adaptativo al progreso del paciente.",
+      "en": "Active and passive mechatronic rehabilitation system with real-time force and angular position control, adaptive to patient progress."
+    },
+    "highlights": [
+      {
+        "icon": "fa-brands fa-youtube",
+        "es": "<strong>Video:</strong> Ver Demostración Biomecánica",
+        "en": "<strong>Video:</strong> Watch Biomechanical Demo"
+      },
+      {
+        "icon": "fa-solid fa-bolt",
+        "es": "<strong>Actuación:</strong> Motor NEMA 23 y transmisión por husillo de bolas",
+        "en": "<strong>Actuation:</strong> NEMA 23 stepper and ballscrew linear transmission"
+      },
+      {
+        "icon": "fa-solid fa-satellite-dish",
+        "es": "<strong>Sensores:</strong> Encoder magnético AS5600 y celda de carga HX711",
+        "en": "<strong>Sensors:</strong> AS5600 magnetic encoder and HX711 load cell"
+      },
+      {
+        "icon": "fa-solid fa-microchip",
+        "es": "<strong>Control:</strong> Control Difuso y modelo Random Forest en microcontrolador",
+        "en": "<strong>Control:</strong> Fuzzy Logic and Random Forest classifier on MCU"
+      }
+    ],
+    "techTags": ["Raspberry Pi 5", "ESP32", "Simulink", "Simscape", "Python"]
+  },
+  {
+    "id": "lora-kipu",
+    "category": "iot",
+    "image": "assets/images/lora-kipu.jpg",
+    "badgeIcon": "fa-solid fa-seedling",
+    "badgeText": {
+      "es": "Monitoreo Agrícola & IoT (Render)",
+      "en": "AgriTech Monitoring & IoT (Render)"
+    },
+    "title": {
+      "es": "Lora Kipu — Red IoT Microclimática",
+      "en": "Lora Kipu — Microclimatic IoT Network"
+    },
+    "liveDemo": null,
+    "videoDemo": null,
+    "repoUrl": null,
+    "isPrivate": false,
+    "description": {
+      "es": "Red inalámbrica autónoma de bajo consumo para monitorización ambiental y detección temprana de fitopatologías en cultivos de cacao.",
+      "en": "Autonomous low-power wireless mesh network for environmental monitoring and early phytopathology detection in cocoa plantations."
+    },
+    "highlights": [
+      {
+        "icon": "fa-solid fa-signal",
+        "es": "<strong>Comunicaciones:</strong> Nodos LoRa / LoRaWAN de largo alcance",
+        "en": "<strong>Comms:</strong> Long-range LoRa / LoRaWAN autonomous sensor nodes"
+      },
+      {
+        "icon": "fa-solid fa-server",
+        "es": "<strong>Backend:</strong> Microservicios en FastAPI y base de datos distribuida",
+        "en": "<strong>Backend:</strong> FastAPI microservices with cloud time-series DB"
+      },
+      {
+        "icon": "fa-solid fa-chart-line",
+        "es": "<strong>Modelos:</strong> Predicción de riesgo climático y fitopatológico",
+        "en": "<strong>Models:</strong> Microclimate & disease prediction machine learning models"
+      }
+    ],
+    "techTags": ["ESP32", "LoRaWAN", "FastAPI", "Machine Learning", "Python"]
+  },
+  {
+    "id": "scada-twin",
+    "category": "automation",
+    "image": "assets/images/scada-twin1.png",
+    "badgeIcon": "fa-solid fa-gears",
+    "badgeText": {
+      "es": "Industria 4.0 & SCADA",
+      "en": "Industry 4.0 & SCADA"
+    },
+    "title": {
+      "es": "Gemelo Digital & SCADA de Manufactura",
+      "en": "Digital Twin & Manufacturing SCADA"
+    },
+    "liveDemo": null,
+    "videoDemo": "luxnUp_XqdI",
+    "repoUrl": null,
+    "isPrivate": false,
+    "description": {
+      "es": "Emulación integral de celdas de ensamblaje industrial conectadas a controlador lógico programable Siemens y sistema SCADA en tiempo real.",
+      "en": "Complete simulation of industrial assembly cells connected to Siemens PLC controller and real-time SCADA supervisory system."
+    },
+    "highlights": [
+      {
+        "icon": "fa-brands fa-youtube",
+        "es": "<strong>Video:</strong> Ver Simulación SCADA",
+        "en": "<strong>Video:</strong> Watch SCADA Simulation"
+      },
+      {
+        "icon": "fa-solid fa-code",
+        "es": "<strong>Control PLC:</strong> Siemens S7-1200/1500 programado en SCL",
+        "en": "<strong>PLC Control:</strong> Siemens S7-1200/1500 programmed in structured SCL"
+      },
+      {
+        "icon": "fa-solid fa-network-wired",
+        "es": "<strong>Protocolo:</strong> Enlace industrial OPC UA de baja latencia",
+        "en": "<strong>Protocol:</strong> Low-latency OPC UA industrial communication"
+      },
+      {
+        "icon": "fa-solid fa-desktop",
+        "es": "<strong>Supervisión:</strong> Panel SCADA en Ignition Designer con métricas",
+        "en": "<strong>Supervision:</strong> Ignition Designer SCADA dashboard with OEE metrics"
+      }
+    ],
+    "techTags": ["Siemens S7", "TIA Portal", "Factory I/O", "Ignition SCADA", "OPC UA"]
+  },
+  {
+    "id": "cidfae-oven",
+    "category": "aerospace",
+    "image": "assets/images/cidfae-oven.png",
+    "badgeIcon": "fa-solid fa-plane-departure",
+    "badgeText": {
+      "es": "I+D Aeroespacial",
+      "en": "Aerospace R&D"
+    },
+    "title": {
+      "es": "Reacondicionamiento de Horno de Curado (CIDFAE)",
+      "en": "Curing Oven Modernization (CIDFAE)"
+    },
+    "liveDemo": null,
+    "videoDemo": "quRxPrLFzec",
+    "repoUrl": null,
+    "isPrivate": false,
+    "description": {
+      "es": "Modernización del sistema de potencia, control térmico e interfaz humano-máquina para procesado de materiales compuestos aeroespaciales.",
+      "en": "Power system retrofitting, thermal control optimization, and HMI interface redesign for aerospace composite material processing."
+    },
+    "highlights": [
+      {
+        "icon": "fa-brands fa-youtube",
+        "es": "<strong>Video:</strong> Ver Operación de Horno",
+        "en": "<strong>Video:</strong> Watch Oven Operation Demo"
+      },
+      {
+        "icon": "fa-solid fa-display",
+        "es": "<strong>HMI:</strong> Rediseño de pantallas de control y alarmas en Kinco DTools",
+        "en": "<strong>HMI:</strong> Screen redesign and alarm management in Kinco DTools"
+      },
+      {
+        "icon": "fa-solid fa-wifi",
+        "es": "<strong>Telemetría:</strong> Supervisión y diagnóstico remoto seguro con VNC",
+        "en": "<strong>Telemetry:</strong> Remote monitoring and diagnostics via secure VNC"
+      },
+      {
+        "icon": "fa-solid fa-bolt",
+        "es": "<strong>Potencia:</strong> Sustitución de conductores y aseguramiento térmico",
+        "en": "<strong>Power:</strong> Conductor replacement and contact resistance optimization"
+      }
+    ],
+    "techTags": ["HMI Kinco", "DTools 4.5.6", "VNC Viewer", "Control Térmico", "Electricidad Industrial"]
+  }
+]

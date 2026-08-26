@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
   initMobileMenu();
   initProjectFilters();
+  initProfile360();
+  initFlipbook();
+  initMemoryGame();
   initSmoothScroll();
   initScrollReveal();
   initHeroParticles();
@@ -116,6 +119,11 @@ function setLanguage(lang, savePreference = true) {
       el.textContent = `"${langDict[key]}"`;
     }
   });
+
+  // 5. Re-render dynamic projects in new language
+  if (typeof renderDynamicProjects === 'function' && projectsData && projectsData.length > 0) {
+    renderDynamicProjects();
+  }
 }
 
 /**
@@ -198,10 +206,179 @@ function initMobileMenu() {
   }
 }
 
-/**
- * Handle Project Category Filtering
- */
+// ==========================================================================
+// DYNAMIC PROJECTS FROM projects.json & SHOW MORE / LESS PAGINATION
+// ==========================================================================
+let projectsData = [];
+let activeProjectFilter = 'all';
+let isProjectsExpanded = false;
+const INITIAL_PROJECTS_COUNT = 4;
+
 function initProjectFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const btnToggleMore = document.getElementById('btn-toggle-projects');
+
+  // Fetch Projects from projects.json
+  fetch('projects.json')
+    .then(response => {
+      if (!response.ok) throw new Error('Error al cargar projects.json');
+      return response.json();
+    })
+    .then(data => {
+      projectsData = data;
+      renderDynamicProjects();
+    })
+    .catch(err => {
+      console.warn('Carga dinámica omitida, usando fallback HTML existente:', err);
+      setupStaticFiltersFallback();
+    });
+
+  // Filter Buttons Click
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      activeProjectFilter = btn.getAttribute('data-filter') || 'all';
+      renderDynamicProjects();
+    });
+  });
+
+  // Show More / Show Less Toggle Button Click
+  if (btnToggleMore) {
+    btnToggleMore.addEventListener('click', () => {
+      isProjectsExpanded = !isProjectsExpanded;
+      renderDynamicProjects();
+      
+      // If collapsing, scroll smoothly back to projects section
+      if (!isProjectsExpanded) {
+        const projSection = document.getElementById('projects');
+        if (projSection) {
+          projSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  }
+}
+
+/**
+ * Render Project Cards dynamically from projects.json
+ */
+function renderDynamicProjects() {
+  const container = document.getElementById('projects-grid');
+  const btnToggleMore = document.getElementById('btn-toggle-projects');
+  const toggleText = document.getElementById('toggle-projects-text');
+  const currentLang = document.documentElement.lang || localStorage.getItem('portfolio_lang') || 'es';
+
+  if (!container || projectsData.length === 0) return;
+
+  // Filter by category
+  const filtered = projectsData.filter(p => {
+    return activeProjectFilter === 'all' || p.category === activeProjectFilter;
+  });
+
+  // Determine items to display based on expansion state
+  let visibleProjects = filtered;
+  if (activeProjectFilter === 'all' && !isProjectsExpanded) {
+    visibleProjects = filtered.slice(0, INITIAL_PROJECTS_COUNT);
+  }
+
+  // Update Toggle Button Visibility and Text
+  if (btnToggleMore && toggleText) {
+    if (activeProjectFilter !== 'all' || filtered.length <= INITIAL_PROJECTS_COUNT) {
+      btnToggleMore.parentElement.style.display = 'none';
+    } else {
+      btnToggleMore.parentElement.style.display = 'flex';
+      if (isProjectsExpanded) {
+        btnToggleMore.classList.add('expanded');
+        toggleText.textContent = currentLang === 'en' ? 'Show fewer projects' : 'Ver menos proyectos';
+        toggleText.setAttribute('data-i18n', 'projects.btn.show_less');
+      } else {
+        btnToggleMore.classList.remove('expanded');
+        toggleText.textContent = currentLang === 'en' ? 'Show more projects' : 'Ver más proyectos';
+        toggleText.setAttribute('data-i18n', 'projects.btn.show_more');
+      }
+    }
+  }
+
+  // Render Project Cards HTML
+  container.innerHTML = '';
+  visibleProjects.forEach((proj, idx) => {
+    const card = document.createElement('article');
+    card.className = 'project-card is-revealed';
+    card.setAttribute('data-category', proj.category);
+
+    const titleText = typeof proj.title === 'object' ? (proj.title[currentLang] || proj.title.es) : proj.title;
+    const descText = typeof proj.description === 'object' ? (proj.description[currentLang] || proj.description.es) : proj.description;
+    const badgeText = typeof proj.badgeText === 'object' ? (proj.badgeText[currentLang] || proj.badgeText.es) : proj.badgeText;
+
+    // Highlights list items
+    const highlightsHtml = proj.highlights.map(hl => {
+      const hlText = typeof hl === 'object' ? (hl[currentLang] || hl.es) : hl;
+      return `<div class="highlight-item"><i class="${hl.icon}"></i> <span>${hlText}</span></div>`;
+    }).join('');
+
+    // Tech Tags
+    const tagsHtml = proj.techTags.map(t => `<span>${t}</span>`).join('');
+
+    // Actions (Live Demo, Video Demo, Repo, Private badge)
+    let actionButtonsHtml = '';
+    if (proj.liveDemo) {
+      actionButtonsHtml += `
+        <a href="${proj.liveDemo}" target="_blank" class="btn-live-demo" title="Probar Aplicación en Vivo">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn.view_app">${currentLang === 'en' ? 'Live demo' : 'Ver aplicación'}</span>
+        </a>
+      `;
+    }
+    if (proj.videoDemo) {
+      actionButtonsHtml += `
+        <button class="btn-video-demo" onclick="openVideoModal('${proj.videoDemo}', '${escapeHtml(titleText)}')">
+          <i class="fa-solid fa-play"></i> <span data-i18n="btn.view_video">${currentLang === 'en' ? 'Watch video' : 'Ver video'}</span>
+        </button>
+      `;
+    }
+    if (proj.repoUrl) {
+      actionButtonsHtml += `
+        <a href="${proj.repoUrl}" target="_blank" class="project-repo-link" title="Ver código en GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      `;
+    }
+    if (proj.isPrivate) {
+      actionButtonsHtml += `
+        <span class="badge-private" title="Código en repositorio comercial/privado">
+          <i class="fa-solid fa-lock"></i> <span data-i18n="badge.private">${currentLang === 'en' ? 'Private' : 'Privado'}</span>
+        </span>
+      `;
+    }
+
+    card.innerHTML = `
+      <div class="project-card-banner has-photo">
+        <img src="${proj.image}" alt="${escapeHtml(titleText)}" class="project-banner-img" onclick="openImageModal(this.src, '${escapeHtml(titleText)}')">
+        <div class="project-badge"><i class="${proj.badgeIcon}"></i> ${badgeText}</div>
+      </div>
+      <div class="project-card-body">
+        <div class="project-title-row">
+          <h3 class="project-title">${escapeHtml(titleText)}</h3>
+          <div class="project-actions">
+            ${actionButtonsHtml}
+          </div>
+        </div>
+        <p class="project-desc">${descText}</p>
+        <div class="project-highlights">
+          ${highlightsHtml}
+        </div>
+        <div class="project-tech-tags">
+          ${tagsHtml}
+        </div>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function setupStaticFiltersFallback() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
@@ -230,6 +407,16 @@ function initProjectFilters() {
       });
     });
   });
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 
 /**
@@ -579,6 +766,418 @@ function initHeroParticles() {
       }, { threshold: 0.05 });
 
       heroObserver.observe(heroSection);
+    }
+  }
+}
+
+/* ==========================================================================
+   PROFILE 360° FLIP LOGIC (Formal vs. Informal)
+   ========================================================================== */
+function initProfile360() {
+  const profileContainer = document.getElementById('profile-360');
+  if (!profileContainer) return;
+
+  profileContainer.addEventListener('click', () => {
+    profileContainer.classList.toggle('is-flipped');
+    const isFlipped = profileContainer.classList.contains('is-flipped');
+    showToast(isFlipped ? 'Modo: Líder Comunitario & Tech Explorer (360°)' : 'Modo: Ingeniero Mecatrónico Formal (360°)');
+  });
+}
+
+/* ==========================================================================
+   FLIPBOOK 3D EDITORIAL ENGINE (Touch Gestures, Spine & Open Book Spread)
+   ========================================================================== */
+const FLIPBOOK_SPREADS = [
+  {
+    left: {
+      chapter: 'CAPÍTULO I',
+      num: '01',
+      tag: 'Sistemas Embebidos',
+      title: 'Dispositivo Robótico de Rodilla',
+      text: 'Diseño mecatrónico para rehabilitación activa/pasiva con control de fuerza y posición angular en tiempo real mediante sensor AS5600 y celda de carga HX711.',
+      features: [
+        { icon: 'fa-microchip', text: 'ESP32 + Raspberry Pi 5' },
+        { icon: 'fa-brain', text: 'Algoritmo Random Forest' }
+      ]
+    },
+    right: {
+      chapter: 'CAPÍTULO II',
+      num: '02',
+      tag: 'IoT & Agricultura',
+      title: 'Lora Kipu — Red Microclimática',
+      text: 'Monitoreo ambiental autónomo de bajo consumo para detección temprana de fitopatologías en cultivos de cacao mediante protocolo LoRaWAN.',
+      features: [
+        { icon: 'fa-wifi', text: 'Nodos LoRaWAN de Largo Alcance' },
+        { icon: 'fa-server', text: 'Microservicios FastAPI' }
+      ]
+    }
+  },
+  {
+    left: {
+      chapter: 'CAPÍTULO III',
+      num: '03',
+      tag: 'Automatización Industrial',
+      title: 'Gemelo Digital & SCADA de Planta',
+      text: 'Emulación virtualizada de celdas de manufactura conectadas a PLC Siemens S7-1200 y supervisión en tiempo real con Ignition SCADA vía OPC UA.',
+      features: [
+        { icon: 'fa-gears', text: 'TIA Portal + Factory I/O' },
+        { icon: 'fa-network-wired', text: 'Protocolo Industrial OPC UA' }
+      ]
+    },
+    right: {
+      chapter: 'CAPÍTULO IV',
+      num: '04',
+      tag: 'I+D Aeroespacial',
+      title: 'Horno de Curado Compuesto (CIDFAE)',
+      text: 'Reacondicionamiento integral del sistema de potencia, rediseño de interfaz HMI en Kinco DTools y monitoreo remoto seguro por VNC.',
+      features: [
+        { icon: 'fa-display', text: 'Kinco DTools v4.5.6 HMI' },
+        { icon: 'fa-bolt', text: 'Control Térmico de Potencia' }
+      ]
+    }
+  },
+  {
+    left: {
+      chapter: 'CAPÍTULO V',
+      num: '05',
+      tag: 'Software Fullstack',
+      title: 'THE GOAT — Gift Cards & RFID',
+      text: 'Plataforma web en producción para venta online con generación criptográfica SHA-256 y aplicación PWA para abono a manillas RFID en bares.',
+      features: [
+        { icon: 'fa-code', text: 'Next.js + TypeScript + Supabase' },
+        { icon: 'fa-qrcode', text: 'PWA con Lector QR y Audio API' }
+      ]
+    },
+    right: {
+      chapter: 'CAPÍTULO VI',
+      num: '06',
+      tag: 'Liderazgo Global',
+      title: 'IEEE & Formación Cambridge',
+      text: 'Dirección nacional de IEEEXtreme 19.0, presidencia de rama estudiantil IEEE ESPE y certificación en liderazgo en Clare College, Cambridge.',
+      features: [
+        { icon: 'fa-award', text: 'Global Leadership Certificate' },
+        { icon: 'fa-users', text: 'Gestión Multicultural de Equipos' }
+      ]
+    }
+  }
+];
+
+let currentFlipbookSpread = 0;
+
+function initFlipbook() {
+  const touchZone = document.getElementById('flipbook-touch-zone');
+  const btnPrev = document.getElementById('btn-fb-prev');
+  const btnNext = document.getElementById('btn-fb-next');
+  const leftPage = document.getElementById('fb-left-page');
+  const rightPage = document.getElementById('fb-right-page');
+
+  if (!touchZone) return;
+
+  renderFlipbookSpread();
+
+  function nextSpread() {
+    currentFlipbookSpread = (currentFlipbookSpread + 1) % FLIPBOOK_SPREADS.length;
+    renderFlipbookSpread();
+  }
+
+  function prevSpread() {
+    currentFlipbookSpread = (currentFlipbookSpread - 1 + FLIPBOOK_SPREADS.length) % FLIPBOOK_SPREADS.length;
+    renderFlipbookSpread();
+  }
+
+  // Buttons
+  if (btnPrev) {
+    btnPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevSpread();
+    });
+  }
+
+  if (btnNext) {
+    btnNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextSpread();
+    });
+  }
+
+  // Direct click on pages to flip
+  if (rightPage) {
+    rightPage.style.cursor = 'pointer';
+    rightPage.addEventListener('click', () => {
+      nextSpread();
+      showToast('Avanzando al siguiente capítulo del Flipbook');
+    });
+  }
+
+  if (leftPage) {
+    leftPage.style.cursor = 'pointer';
+    leftPage.addEventListener('click', () => {
+      prevSpread();
+      showToast('Retrocediendo al capítulo anterior del Flipbook');
+    });
+  }
+
+  // Touch swipe gestures with threshold
+  let startX = 0;
+  let startY = 0;
+
+  touchZone.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  touchZone.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const diffX = endX - startX;
+    const diffY = endY - startY;
+
+    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX < 0) {
+        nextSpread();
+      } else {
+        prevSpread();
+      }
+    }
+  }, { passive: true });
+}
+
+function renderFlipbookSpread() {
+  const spread = FLIPBOOK_SPREADS[currentFlipbookSpread];
+  if (!spread) return;
+
+  const leftPage = document.getElementById('fb-left-page');
+  const rightPage = document.getElementById('fb-right-page');
+  const indicator = document.getElementById('fb-indicator-text');
+
+  if (leftPage && rightPage) {
+    // 3D Page Turn Animation
+    rightPage.style.opacity = '0.3';
+    rightPage.style.transform = 'rotateY(-25deg)';
+
+    setTimeout(() => {
+      // Left Page Content
+      document.getElementById('fb-left-chapter').textContent = spread.left.chapter;
+      document.getElementById('fb-left-num').textContent = spread.left.num;
+      document.getElementById('fb-left-tag').textContent = spread.left.tag;
+      document.getElementById('fb-left-title').textContent = spread.left.title;
+      document.getElementById('fb-left-text').textContent = spread.left.text;
+      document.getElementById('fb-left-features').innerHTML = spread.left.features.map(f => 
+        `<div><i class="fa-solid ${f.icon}"></i> ${f.text}</div>`
+      ).join('');
+
+      // Right Page Content
+      document.getElementById('fb-right-chapter').textContent = spread.right.chapter;
+      document.getElementById('fb-right-num').textContent = spread.right.num;
+      document.getElementById('fb-right-tag').textContent = spread.right.tag;
+      document.getElementById('fb-right-title').textContent = spread.right.title;
+      document.getElementById('fb-right-text').textContent = spread.right.text;
+      document.getElementById('fb-right-features').innerHTML = spread.right.features.map(f => 
+        `<div><i class="fa-solid ${f.icon}"></i> ${f.text}</div>`
+      ).join('');
+
+      rightPage.style.opacity = '1';
+      rightPage.style.transform = 'rotateY(0deg)';
+    }, 120);
+  }
+
+  if (indicator) {
+    indicator.textContent = `Spread ${currentFlipbookSpread + 1} de ${FLIPBOOK_SPREADS.length}`;
+  }
+}
+
+/* ==========================================================================
+   MEMORY MATCHING GAME (Clase Martes 8 - Fade-out & Reemplazo con Fade-in)
+   ========================================================================== */
+const ALL_TECH_PAIRS = [
+  { id: 'esp32', name: 'ESP32 IoT', icon: 'fa-microchip' },
+  { id: 'ros2', name: 'ROS 2 Robótica', icon: 'fa-robot' },
+  { id: 'plc', name: 'Siemens PLC', icon: 'fa-industry' },
+  { id: 'lora', name: 'LoRaWAN', icon: 'fa-wifi' },
+  { id: 'next', name: 'Next.js React', icon: 'fa-code' },
+  { id: 'scada', name: 'Ignition SCADA', icon: 'fa-desktop' },
+  { id: 'fastapi', name: 'FastAPI Python', icon: 'fa-bolt' },
+  { id: 'hmi', name: 'Kinco HMI', icon: 'fa-display' }
+];
+
+let pendingPairsQueue = [];
+let activeSlots = [];
+let flippedCards = [];
+let matchedCount = 0;
+let totalPairsTarget = 6;
+let movesCount = 0;
+let gameTimerInterval = null;
+let gameSeconds = 0;
+
+function initMemoryGame() {
+  const btnOpenNav = document.getElementById('btn-open-game-nav');
+  const modal = document.getElementById('memory-game-modal');
+  const btnClose = document.getElementById('btn-close-game');
+  const btnRestart = document.getElementById('btn-restart-game');
+  const btnPlayAgain = document.getElementById('btn-play-again');
+
+  if (btnOpenNav && modal) {
+    btnOpenNav.addEventListener('click', () => {
+      modal.classList.remove('hidden');
+      startMemoryGame();
+    });
+  }
+
+  if (btnClose && modal) {
+    btnClose.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      clearInterval(gameTimerInterval);
+    });
+  }
+
+  if (btnRestart) btnRestart.addEventListener('click', startMemoryGame);
+  if (btnPlayAgain) btnPlayAgain.addEventListener('click', startMemoryGame);
+}
+
+function startMemoryGame() {
+  const grid = document.getElementById('game-grid');
+  const winBanner = document.getElementById('game-win-banner');
+  const movesEl = document.getElementById('game-moves');
+  const matchesEl = document.getElementById('game-matches');
+  const timerEl = document.getElementById('game-timer');
+
+  if (!grid) return;
+
+  if (winBanner) winBanner.classList.add('hidden');
+  grid.classList.remove('hidden');
+
+  matchedCount = 0;
+  movesCount = 0;
+  flippedCards = [];
+  gameSeconds = 0;
+  totalPairsTarget = 6;
+
+  if (movesEl) movesEl.textContent = '0';
+  if (matchesEl) matchesEl.textContent = `0 / ${totalPairsTarget}`;
+  if (timerEl) timerEl.textContent = '00:00';
+
+  clearInterval(gameTimerInterval);
+  gameTimerInterval = setInterval(() => {
+    gameSeconds++;
+    const m = String(Math.floor(gameSeconds / 60)).padStart(2, '0');
+    const s = String(gameSeconds % 60).padStart(2, '0');
+    if (timerEl) timerEl.textContent = `${m}:${s}`;
+  }, 1000);
+
+  // Shuffle master pool
+  const shuffledPool = [...ALL_TECH_PAIRS].sort(() => Math.random() - 0.5);
+  
+  // First 4 pairs populate the 8 slots
+  const initialPairs = shuffledPool.slice(0, 4);
+  // Remaining pairs enter the replenishment queue
+  pendingPairsQueue = shuffledPool.slice(4, totalPairsTarget);
+
+  // Create initial deck of 8 cards
+  const deck = [];
+  initialPairs.forEach(item => {
+    deck.push({ ...item, uid: item.id + '-1' });
+    deck.push({ ...item, uid: item.id + '-2' });
+  });
+  deck.sort(() => Math.random() - 0.5);
+
+  grid.innerHTML = '';
+  activeSlots = new Array(8).fill(null);
+
+  deck.forEach((cardData, slotIndex) => {
+    const slot = document.createElement('div');
+    slot.className = 'game-card-slot';
+    slot.id = `slot-${slotIndex}`;
+    grid.appendChild(slot);
+
+    createCardInSlot(slot, cardData, slotIndex);
+  });
+}
+
+function createCardInSlot(slotEl, cardData, slotIndex, isFadeIn = false) {
+  const card = document.createElement('div');
+  card.className = `memory-card ${isFadeIn ? 'fade-in' : ''}`;
+  card.setAttribute('data-id', cardData.id);
+  card.setAttribute('data-uid', cardData.uid);
+  card.setAttribute('data-slot', slotIndex);
+
+  card.innerHTML = `
+    <div class="card-face card-front">
+      <i class="fa-solid fa-code"></i>
+    </div>
+    <div class="card-face card-back">
+      <i class="fa-solid ${cardData.icon}"></i>
+      <span>${cardData.name}</span>
+    </div>
+  `;
+
+  card.addEventListener('click', () => handleCardFlip(card, cardData, slotIndex));
+  slotEl.innerHTML = '';
+  slotEl.appendChild(card);
+  activeSlots[slotIndex] = { cardEl: card, cardData };
+}
+
+function handleCardFlip(cardEl, cardData, slotIndex) {
+  if (cardEl.classList.contains('is-flipped') || cardEl.classList.contains('fade-out') || flippedCards.length >= 2) {
+    return;
+  }
+
+  cardEl.classList.add('is-flipped');
+  flippedCards.push({ cardEl, cardData, slotIndex });
+
+  if (flippedCards.length === 2) {
+    movesCount++;
+    const movesEl = document.getElementById('game-moves');
+    if (movesEl) movesEl.textContent = movesCount;
+
+    const [first, second] = flippedCards;
+
+    if (first.cardData.id === second.cardData.id) {
+      // MATCH FOUND!
+      matchedCount++;
+      const matchesEl = document.getElementById('game-matches');
+      if (matchesEl) matchesEl.textContent = `${matchedCount} / ${totalPairsTarget}`;
+
+      // COMPORTAMIENTO CLASE MARTES 8:
+      // 1. Al acertar: desvanecimiento suave con .fade-out (0.5s), permaneciendo en DOM para no alterar la grilla
+      setTimeout(() => {
+        first.cardEl.classList.add('fade-out');
+        second.cardEl.classList.add('fade-out');
+
+        // 2. 1s después: si hay pares pendientes en la cola, ambos slots se rellenan con el siguiente par y hacen .fade-in
+        setTimeout(() => {
+          if (pendingPairsQueue.length > 0) {
+            const nextPair = pendingPairsQueue.shift();
+            const slot1 = document.getElementById(`slot-${first.slotIndex}`);
+            const slot2 = document.getElementById(`slot-${second.slotIndex}`);
+
+            if (slot1) createCardInSlot(slot1, { ...nextPair, uid: nextPair.id + '-1' }, first.slotIndex, true);
+            if (slot2) createCardInSlot(slot2, { ...nextPair, uid: nextPair.id + '-2' }, second.slotIndex, true);
+          } else {
+            // No more pending cards, mark slot empty
+            activeSlots[first.slotIndex] = null;
+            activeSlots[second.slotIndex] = null;
+          }
+
+          // Check if all target pairs are matched
+          if (matchedCount >= totalPairsTarget) {
+            clearInterval(gameTimerInterval);
+            setTimeout(() => {
+              document.getElementById('game-grid').classList.add('hidden');
+              document.getElementById('game-win-banner').classList.remove('hidden');
+            }, 600);
+          }
+        }, 1000);
+
+      }, 500);
+
+      flippedCards = [];
+    } else {
+      // NO MATCH -> FLIP BACK
+      setTimeout(() => {
+        first.cardEl.classList.remove('is-flipped');
+        second.cardEl.classList.remove('is-flipped');
+        flippedCards = [];
+      }, 1000);
     }
   }
 }

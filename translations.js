@@ -8,6 +8,7 @@ const translations = {
     "nav.about": "Sobre Mí",
     "nav.skills": "Habilidades",
     "nav.projects": "Proyectos",
+    "nav.flipbook": "Flipbook 3D",
     "nav.experience": "Experiencia",
     "nav.leadership": "Liderazgo",
     "nav.contact": "Contacto",
@@ -84,6 +85,13 @@ const translations = {
     "projects.filter.iot": "IoT & Agricultura",
     "projects.filter.automation": "Automatización & SCADA",
     "projects.filter.aerospace": "I+D Aeroespacial",
+    "projects.btn.show_more": "Ver más proyectos",
+    "projects.btn.show_less": "Ver menos proyectos",
+
+    // Flipbook 3D Section
+    "flipbook.tag": "Bitácora Editorial 3D",
+    "flipbook.title": "Catálogo Táctil de Ingeniería & I+D",
+    "flipbook.description": "Experiencia editorial interactiva tipo libro abierto. Deslizá o arrastrá las hojas con el ratón o en pantalla táctil para hojear los capítulos técnicos.",
 
     // Project 1: THE GOAT
     "project.goat.badge": "Plataforma Web & RFID",
@@ -210,9 +218,10 @@ const translations = {
 
   en: {
     // Navigation
-    "nav.about": "About Me",
+    "nav.about": "About",
     "nav.skills": "Skills",
     "nav.projects": "Projects",
+    "nav.flipbook": "3D Flipbook",
     "nav.experience": "Experience",
     "nav.leadership": "Leadership",
     "nav.contact": "Contact",
@@ -289,6 +298,13 @@ const translations = {
     "projects.filter.iot": "IoT & AgriTech",
     "projects.filter.automation": "Automation & SCADA",
     "projects.filter.aerospace": "Aerospace R&D",
+    "projects.btn.show_more": "Show more projects",
+    "projects.btn.show_less": "Show fewer projects",
+
+    // Flipbook 3D Section
+    "flipbook.tag": "3D Editorial Journal",
+    "flipbook.title": "Tactile Engineering & R&D Catalogue",
+    "flipbook.description": "Open-book interactive editorial experience. Swipe or drag pages with mouse or touch gestures to browse through technical engineering chapters.",
 
     // Project 1: THE GOAT
     "project.goat.badge": "Web Platform & RFID",
