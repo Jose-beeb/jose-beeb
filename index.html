@@ -21,7 +21,7 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <link rel="stylesheet" href="styles.css?v=4.0">
+  <link rel="stylesheet" href="styles.css?v=5.0">
 </head>
 <body>
 
@@ -39,20 +39,26 @@
       </a>
 
       <nav class="nav-menu" id="nav-menu">
-        <a href="#about" class="nav-link" data-i18n="nav.about">Sobre Mí</a>
-        <a href="#skills" class="nav-link" data-i18n="nav.skills">Habilidades</a>
-        <a href="#projects" class="nav-link" data-i18n="nav.projects">Proyectos</a>
-        <a href="#flipbook" class="nav-link" data-i18n="nav.flipbook">Flipbook 3D</a>
-        <a href="#experience" class="nav-link" data-i18n="nav.experience">Experiencia</a>
-        <a href="#leadership" class="nav-link" data-i18n="nav.leadership">Liderazgo</a>
-        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contacto</a>
-        <button class="btn-nav-game" id="btn-open-game-nav" title="Abrir Minijuego de Pares Mecatrónicos">
-          <i class="fa-solid fa-gamepad"></i> <span>Juego</span>
+        <a href="#about" class="nav-link" title="Sobre Mí"><i class="fa-solid fa-user"></i> <span class="nav-text" data-i18n="nav.about">Sobre Mí</span></a>
+        <a href="#skills" class="nav-link" title="Habilidades"><i class="fa-solid fa-layer-group"></i> <span class="nav-text" data-i18n="nav.skills">Habilidades</span></a>
+        <a href="#projects" class="nav-link" title="Proyectos"><i class="fa-solid fa-code-branch"></i> <span class="nav-text" data-i18n="nav.projects">Proyectos</span></a>
+        <a href="#flipbook" class="nav-link" title="Bitácora 3D"><i class="fa-solid fa-book-open"></i> <span class="nav-text" data-i18n="nav.flipbook">Bitácora</span></a>
+        <a href="#experience" class="nav-link" title="Experiencia"><i class="fa-solid fa-briefcase"></i> <span class="nav-text" data-i18n="nav.experience">Experiencia</span></a>
+        <a href="#leadership" class="nav-link" title="Liderazgo"><i class="fa-solid fa-award"></i> <span class="nav-text" data-i18n="nav.leadership">Liderazgo</span></a>
+        <a href="#contact" class="nav-link" title="Contacto"><i class="fa-solid fa-paper-plane"></i> <span class="nav-text" data-i18n="nav.contact">Contacto</span></a>
+        <button class="btn-nav-game" id="btn-open-game-nav" title="Minijuego de Pares Mecatrónicos">
+          <i class="fa-solid fa-gamepad"></i> <span class="nav-text">Juego</span>
         </button>
-        <a href="./cv.html" class="btn-nav-cv" target="_blank"><i class="fa-solid fa-file-lines"></i> <span data-i18n="nav.cv">Curriculum</span></a>
+        <a href="./cv.html" class="btn-nav-cv" target="_blank" title="Curriculum Vitae"><i class="fa-solid fa-file-lines"></i> <span class="nav-text" data-i18n="nav.cv">Curriculum</span></a>
       </nav>
 
       <div class="nav-actions">
+        <!-- Top Social Links -->
+        <div class="nav-social-group">
+          <a href="https://github.com/jose-beeb" target="_blank" class="nav-social-link" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com/in/joseacuñah" target="_blank" class="nav-social-link" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+
         <div class="lang-switcher" id="lang-switcher" role="group" aria-label="Language selector">
           <button class="lang-btn active" data-lang="es" title="Español">ES</button>
           <button class="lang-btn" data-lang="en" title="English">EN</button>
@@ -148,17 +154,15 @@
               <span class="terminal-title" data-i18n="terminal.title">perfil_profesional.json</span>
             </div>
             <div class="terminal-body">
-              <pre><code><span class="json-key" data-i18n-json-key="terminal.key.profile">"perfil"</span>: {
-  <span class="json-key" data-i18n-json-key="terminal.key.name">"nombre"</span>: <span class="json-str" data-i18n-json-str="terminal.val.name">"José Acuña"</span>,
-  <span class="json-key" data-i18n-json-key="terminal.key.title">"titulo"</span>: <span class="json-str" data-i18n-json-str="terminal.val.title">"Ingeniero Mecatrónico"</span>,
-  <span class="json-key" data-i18n-json-key="terminal.key.university">"universidad"</span>: <span class="json-str">"Universidad de las Fuerzas Armadas ESPE"</span>,
-  <span class="json-key" data-i18n-json-key="terminal.key.focus">"areas_principales"</span>: [
-    <span class="json-str" data-i18n-json-str="terminal.val.focus1">"Sistemas Embebidos & IoT"</span>,
-    <span class="json-str" data-i18n-json-str="terminal.val.focus2">"Automatización Industrial (PLC / SCADA)"</span>,
-    <span class="json-str" data-i18n-json-str="terminal.val.focus3">"Robótica & Control Adaptativo"</span>
-  ],
-  <span class="json-key" data-i18n-json-key="terminal.key.leadership">"liderazgo"</span>: <span class="json-str" data-i18n-json-str="terminal.val.leadership">"Section Lead Ecuador — IEEEXtreme 19.0"</span>,
-  <span class="json-key" data-i18n-json-key="terminal.key.cert">"certificacion"</span>: <span class="json-str" data-i18n-json-str="terminal.val.cert">"Global Leadership (Univ. of Cambridge)"</span>
+              <pre><code><span class="json-key">"perfil"</span>: {
+  <span class="json-key">"nombre"</span>: <span class="json-str">"José Acuña"</span>,
+  <span class="json-key">"especialidad"</span>: <span class="json-str">"Ingeniería Mecatrónica & Sistemas Embebidos"</span>,
+  <span class="json-key">"stack_hardware"</span>: [<span class="json-str">"ESP32"</span>, <span class="json-str">"Raspberry Pi 5"</span>, <span class="json-str">"LoRaWAN"</span>, <span class="json-str">"STM32"</span>],
+  <span class="json-key">"stack_industrial"</span>: [<span class="json-str">"Siemens PLC S7-1200"</span>, <span class="json-str">"Ignition SCADA"</span>, <span class="json-str">"OPC UA"</span>, <span class="json-str">"Kinco HMI"</span>],
+  <span class="json-key">"stack_software"</span>: [<span class="json-str">"Next.js"</span>, <span class="json-str">"FastAPI"</span>, <span class="json-str">"TypeScript"</span>, <span class="json-str">"Python"</span>, <span class="json-str">"Supabase"</span>],
+  <span class="json-key">"liderazgo"</span>: <span class="json-str">"Lead Nacional IEEEXtreme 19.0 (+100 ingenieros)"</span>,
+  <span class="json-key">"certificacion"</span>: <span class="json-str">"Global Leadership (Univ. of Cambridge, UK)"</span>,
+  <span class="json-key">"disponibilidad"</span>: <span class="json-str">"Proyectos & Posiciones de Alto Impacto"</span>
 }</code></pre>
             </div>
             <div class="terminal-footer">
@@ -933,7 +937,14 @@
     </div>
   </footer>
 
-  <script src="translations.js?v=4.0"></script>
-  <script src="main.js?v=4.0"></script>
+  <!-- Floating Contact Mail Bubble (FAB) -->
+  <a href="mailto:jaacunainusa@gmail.com" class="floating-mail-bubble" id="floating-mail-bubble" aria-label="Enviar correo" title="¡Escribime un correo!">
+    <span class="bubble-pulse"></span>
+    <i class="fa-solid fa-envelope"></i>
+    <span class="bubble-tag">¡Escribime!</span>
+  </a>
+
+  <script src="translations.js?v=5.0"></script>
+  <script src="main.js?v=5.0"></script>
 </body>
 </html>
