@@ -307,6 +307,8 @@ function renderDynamicProjects() {
     const card = document.createElement('article');
     card.className = 'project-card is-revealed';
     card.setAttribute('data-category', proj.category);
+    // Staggered Entrance Animation Delay for smooth card appearance
+    card.style.animationDelay = `${idx * 85}ms`;
 
     const titleText = typeof proj.title === 'object' ? (proj.title[currentLang] || proj.title.es) : proj.title;
     const descText = typeof proj.description === 'object' ? (proj.description[currentLang] || proj.description.es) : proj.description;
@@ -785,84 +787,79 @@ function initProfile360() {
 }
 
 /* ==========================================================================
-   FLIPBOOK 3D EDITORIAL ENGINE (Touch Gestures, Spine & Open Book Spread)
+   FLIPBOOK 3D EDITORIAL ENGINE (Desktop Spread + Mobile Notebook Engine)
    ========================================================================== */
-const FLIPBOOK_SPREADS = [
+const FLIPBOOK_CHAPTERS = [
   {
-    left: {
-      chapter: 'CAPÍTULO I',
-      num: '01',
-      tag: 'Sistemas Embebidos',
-      title: 'Dispositivo Robótico de Rodilla',
-      text: 'Diseño mecatrónico para rehabilitación activa/pasiva con control de fuerza y posición angular en tiempo real mediante sensor AS5600 y celda de carga HX711.',
-      features: [
-        { icon: 'fa-microchip', text: 'ESP32 + Raspberry Pi 5' },
-        { icon: 'fa-brain', text: 'Algoritmo Random Forest' }
-      ]
-    },
-    right: {
-      chapter: 'CAPÍTULO II',
-      num: '02',
-      tag: 'IoT & Agricultura',
-      title: 'Lora Kipu — Red Microclimática',
-      text: 'Monitoreo ambiental autónomo de bajo consumo para detección temprana de fitopatologías en cultivos de cacao mediante protocolo LoRaWAN.',
-      features: [
-        { icon: 'fa-wifi', text: 'Nodos LoRaWAN de Largo Alcance' },
-        { icon: 'fa-server', text: 'Microservicios FastAPI' }
-      ]
-    }
+    chapter: 'CAPÍTULO I',
+    num: '01',
+    tag: 'Sistemas Embebidos',
+    title: 'Dispositivo Robótico de Rodilla',
+    text: 'Diseño mecatrónico para rehabilitación activa/pasiva con control de fuerza y posición angular en tiempo real mediante sensor AS5600 y celda de carga HX711.',
+    features: [
+      { icon: 'fa-microchip', text: 'ESP32 + Raspberry Pi 5' },
+      { icon: 'fa-brain', text: 'Algoritmo Random Forest' }
+    ]
   },
   {
-    left: {
-      chapter: 'CAPÍTULO III',
-      num: '03',
-      tag: 'Automatización Industrial',
-      title: 'Gemelo Digital & SCADA de Planta',
-      text: 'Emulación virtualizada de celdas de manufactura conectadas a PLC Siemens S7-1200 y supervisión en tiempo real con Ignition SCADA vía OPC UA.',
-      features: [
-        { icon: 'fa-gears', text: 'TIA Portal + Factory I/O' },
-        { icon: 'fa-network-wired', text: 'Protocolo Industrial OPC UA' }
-      ]
-    },
-    right: {
-      chapter: 'CAPÍTULO IV',
-      num: '04',
-      tag: 'I+D Aeroespacial',
-      title: 'Horno de Curado Compuesto (CIDFAE)',
-      text: 'Reacondicionamiento integral del sistema de potencia, rediseño de interfaz HMI en Kinco DTools y monitoreo remoto seguro por VNC.',
-      features: [
-        { icon: 'fa-display', text: 'Kinco DTools v4.5.6 HMI' },
-        { icon: 'fa-bolt', text: 'Control Térmico de Potencia' }
-      ]
-    }
+    chapter: 'CAPÍTULO II',
+    num: '02',
+    tag: 'IoT & Agricultura',
+    title: 'Lora Kipu — Red Microclimática',
+    text: 'Monitoreo ambiental autónomo de bajo consumo para detección temprana de fitopatologías en cultivos de cacao mediante protocolo LoRaWAN.',
+    features: [
+      { icon: 'fa-wifi', text: 'Nodos LoRaWAN de Largo Alcance' },
+      { icon: 'fa-server', text: 'Microservicios FastAPI' }
+    ]
   },
   {
-    left: {
-      chapter: 'CAPÍTULO V',
-      num: '05',
-      tag: 'Software Fullstack',
-      title: 'THE GOAT — Gift Cards & RFID',
-      text: 'Plataforma web en producción para venta online con generación criptográfica SHA-256 y aplicación PWA para abono a manillas RFID en bares.',
-      features: [
-        { icon: 'fa-code', text: 'Next.js + TypeScript + Supabase' },
-        { icon: 'fa-qrcode', text: 'PWA con Lector QR y Audio API' }
-      ]
-    },
-    right: {
-      chapter: 'CAPÍTULO VI',
-      num: '06',
-      tag: 'Liderazgo Global',
-      title: 'IEEE & Formación Cambridge',
-      text: 'Dirección nacional de IEEEXtreme 19.0, presidencia de rama estudiantil IEEE ESPE y certificación en liderazgo en Clare College, Cambridge.',
-      features: [
-        { icon: 'fa-award', text: 'Global Leadership Certificate' },
-        { icon: 'fa-users', text: 'Gestión Multicultural de Equipos' }
-      ]
-    }
+    chapter: 'CAPÍTULO III',
+    num: '03',
+    tag: 'Automatización Industrial',
+    title: 'Gemelo Digital & SCADA de Planta',
+    text: 'Emulación virtualizada de celdas de manufactura conectadas a PLC Siemens S7-1200 y supervisión en tiempo real con Ignition SCADA vía OPC UA.',
+    features: [
+      { icon: 'fa-gears', text: 'TIA Portal + Factory I/O' },
+      { icon: 'fa-network-wired', text: 'Protocolo Industrial OPC UA' }
+    ]
+  },
+  {
+    chapter: 'CAPÍTULO IV',
+    num: '04',
+    tag: 'I+D Aeroespacial',
+    title: 'Horno de Curado Compuesto (CIDFAE)',
+    text: 'Reacondicionamiento integral del sistema de potencia, rediseño de interfaz HMI en Kinco DTools y monitoreo remoto seguro por VNC.',
+    features: [
+      { icon: 'fa-display', text: 'Kinco DTools v4.5.6 HMI' },
+      { icon: 'fa-bolt', text: 'Control Térmico de Potencia' }
+    ]
+  },
+  {
+    chapter: 'CAPÍTULO V',
+    num: '05',
+    tag: 'Software Fullstack',
+    title: 'THE GOAT — Gift Cards & RFID',
+    text: 'Plataforma web en producción para venta online con generación criptográfica SHA-256 y aplicación PWA para abono a manillas RFID en bares.',
+    features: [
+      { icon: 'fa-code', text: 'Next.js + TypeScript + Supabase' },
+      { icon: 'fa-qrcode', text: 'PWA con Lector QR y Audio API' }
+    ]
+  },
+  {
+    chapter: 'CAPÍTULO VI',
+    num: '06',
+    tag: 'Liderazgo Global',
+    title: 'IEEE & Formación Cambridge',
+    text: 'Dirección nacional de IEEEXtreme 19.0, presidencia de rama estudiantil IEEE ESPE y certificación en liderazgo en Clare College, Cambridge.',
+    features: [
+      { icon: 'fa-award', text: 'Global Leadership Certificate' },
+      { icon: 'fa-users', text: 'Gestión Multicultural de Equipos' }
+    ]
   }
 ];
 
-let currentFlipbookSpread = 0;
+let currentFlipbookSpread = 0; // 0, 1, 2 for dual desktop spreads
+let currentMobileChapter = 0;   // 0 to 5 for single mobile notebook
 
 function initFlipbook() {
   const touchZone = document.getElementById('flipbook-touch-zone');
@@ -873,30 +870,42 @@ function initFlipbook() {
 
   if (!touchZone) return;
 
-  renderFlipbookSpread();
+  renderFlipbookView();
 
-  function nextSpread() {
-    currentFlipbookSpread = (currentFlipbookSpread + 1) % FLIPBOOK_SPREADS.length;
-    renderFlipbookSpread();
+  window.addEventListener('resize', () => {
+    renderFlipbookView(false);
+  });
+
+  function nextFlip() {
+    if (window.innerWidth <= 768) {
+      currentMobileChapter = (currentMobileChapter + 1) % FLIPBOOK_CHAPTERS.length;
+    } else {
+      currentFlipbookSpread = (currentFlipbookSpread + 1) % (FLIPBOOK_CHAPTERS.length / 2);
+    }
+    renderFlipbookView(true, 'forward');
   }
 
-  function prevSpread() {
-    currentFlipbookSpread = (currentFlipbookSpread - 1 + FLIPBOOK_SPREADS.length) % FLIPBOOK_SPREADS.length;
-    renderFlipbookSpread();
+  function prevFlip() {
+    if (window.innerWidth <= 768) {
+      currentMobileChapter = (currentMobileChapter - 1 + FLIPBOOK_CHAPTERS.length) % FLIPBOOK_CHAPTERS.length;
+    } else {
+      currentFlipbookSpread = (currentFlipbookSpread - 1 + (FLIPBOOK_CHAPTERS.length / 2)) % (FLIPBOOK_CHAPTERS.length / 2);
+    }
+    renderFlipbookView(true, 'backward');
   }
 
   // Buttons
   if (btnPrev) {
     btnPrev.addEventListener('click', (e) => {
       e.stopPropagation();
-      prevSpread();
+      prevFlip();
     });
   }
 
   if (btnNext) {
     btnNext.addEventListener('click', (e) => {
       e.stopPropagation();
-      nextSpread();
+      nextFlip();
     });
   }
 
@@ -904,20 +913,18 @@ function initFlipbook() {
   if (rightPage) {
     rightPage.style.cursor = 'pointer';
     rightPage.addEventListener('click', () => {
-      nextSpread();
-      showToast('Avanzando al siguiente capítulo del Flipbook');
+      nextFlip();
     });
   }
 
   if (leftPage) {
     leftPage.style.cursor = 'pointer';
     leftPage.addEventListener('click', () => {
-      prevSpread();
-      showToast('Retrocediendo al capítulo anterior del Flipbook');
+      prevFlip();
     });
   }
 
-  // Touch swipe gestures with threshold
+  // Touch swipe gestures
   let startX = 0;
   let startY = 0;
 
@@ -932,57 +939,88 @@ function initFlipbook() {
     const diffX = endX - startX;
     const diffY = endY - startY;
 
-    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+    if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
       if (diffX < 0) {
-        nextSpread();
+        nextFlip();
       } else {
-        prevSpread();
+        prevFlip();
       }
     }
   }, { passive: true });
 }
 
-function renderFlipbookSpread() {
-  const spread = FLIPBOOK_SPREADS[currentFlipbookSpread];
-  if (!spread) return;
-
+function renderFlipbookView(animate = false, direction = 'forward') {
+  const isMobile = window.innerWidth <= 768;
   const leftPage = document.getElementById('fb-left-page');
   const rightPage = document.getElementById('fb-right-page');
   const indicator = document.getElementById('fb-indicator-text');
 
-  if (leftPage && rightPage) {
-    // 3D Page Turn Animation
-    rightPage.style.opacity = '0.3';
-    rightPage.style.transform = 'rotateY(-25deg)';
+  if (!rightPage) return;
 
-    setTimeout(() => {
-      // Left Page Content
-      document.getElementById('fb-left-chapter').textContent = spread.left.chapter;
-      document.getElementById('fb-left-num').textContent = spread.left.num;
-      document.getElementById('fb-left-tag').textContent = spread.left.tag;
-      document.getElementById('fb-left-title').textContent = spread.left.title;
-      document.getElementById('fb-left-text').textContent = spread.left.text;
-      document.getElementById('fb-left-features').innerHTML = spread.left.features.map(f => 
-        `<div><i class="fa-solid ${f.icon}"></i> ${f.text}</div>`
-      ).join('');
+  if (isMobile) {
+    // MOBILE: Single-page notebook mode
+    const chapterData = FLIPBOOK_CHAPTERS[currentMobileChapter];
+    if (!chapterData) return;
 
-      // Right Page Content
-      document.getElementById('fb-right-chapter').textContent = spread.right.chapter;
-      document.getElementById('fb-right-num').textContent = spread.right.num;
-      document.getElementById('fb-right-tag').textContent = spread.right.tag;
-      document.getElementById('fb-right-title').textContent = spread.right.title;
-      document.getElementById('fb-right-text').textContent = spread.right.text;
-      document.getElementById('fb-right-features').innerHTML = spread.right.features.map(f => 
-        `<div><i class="fa-solid ${f.icon}"></i> ${f.text}</div>`
-      ).join('');
+    if (animate) {
+      rightPage.classList.remove('turn-leaf-forward', 'turn-leaf-backward');
+      void rightPage.offsetWidth; // trigger reflow
+      rightPage.classList.add(direction === 'forward' ? 'turn-leaf-forward' : 'turn-leaf-backward');
+    }
 
-      rightPage.style.opacity = '1';
-      rightPage.style.transform = 'rotateY(0deg)';
-    }, 120);
+    fillPageElement(rightPage, chapterData);
+
+    if (indicator) {
+      indicator.textContent = `Capítulo ${currentMobileChapter + 1} de ${FLIPBOOK_CHAPTERS.length}`;
+    }
+  } else {
+    // DESKTOP: Dual-page open book mode
+    const leftIndex = currentFlipbookSpread * 2;
+    const rightIndex = currentFlipbookSpread * 2 + 1;
+    const leftData = FLIPBOOK_CHAPTERS[leftIndex];
+    const rightData = FLIPBOOK_CHAPTERS[rightIndex];
+
+    if (animate) {
+      const targetPage = direction === 'forward' ? rightPage : (leftPage || rightPage);
+      targetPage.classList.remove('turn-leaf-forward', 'turn-leaf-backward');
+      void targetPage.offsetWidth;
+      targetPage.classList.add(direction === 'forward' ? 'turn-leaf-forward' : 'turn-leaf-backward');
+      
+      setTimeout(() => {
+        if (leftPage && leftData) fillPageElement(leftPage, leftData);
+        if (rightPage && rightData) fillPageElement(rightPage, rightData);
+      }, 250);
+    } else {
+      if (leftPage && leftData) fillPageElement(leftPage, leftData);
+      if (rightPage && rightData) fillPageElement(rightPage, rightData);
+    }
+
+    if (indicator) {
+      indicator.textContent = `Spread ${currentFlipbookSpread + 1} de ${FLIPBOOK_CHAPTERS.length / 2}`;
+    }
   }
+}
 
-  if (indicator) {
-    indicator.textContent = `Spread ${currentFlipbookSpread + 1} de ${FLIPBOOK_SPREADS.length}`;
+function fillPageElement(pageEl, data) {
+  const isLeft = pageEl.classList.contains('side-left');
+  const prefix = isLeft ? 'fb-left' : 'fb-right';
+
+  const chEl = document.getElementById(`${prefix}-chapter`);
+  const numEl = document.getElementById(`${prefix}-num`);
+  const tagEl = document.getElementById(`${prefix}-tag`);
+  const titleEl = document.getElementById(`${prefix}-title`);
+  const textEl = document.getElementById(`${prefix}-text`);
+  const featEl = document.getElementById(`${prefix}-features`);
+
+  if (chEl) chEl.textContent = data.chapter;
+  if (numEl) numEl.textContent = data.num;
+  if (tagEl) tagEl.textContent = data.tag;
+  if (titleEl) titleEl.textContent = data.title;
+  if (textEl) textEl.textContent = data.text;
+  if (featEl) {
+    featEl.innerHTML = data.features.map(f => 
+      `<div><i class="fa-solid ${f.icon}"></i> ${f.text}</div>`
+    ).join('');
   }
 }
 
@@ -1181,5 +1219,4 @@ function handleCardFlip(cardEl, cardData, slotIndex) {
     }
   }
 }
-
 
