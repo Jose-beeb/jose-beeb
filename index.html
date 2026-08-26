@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>José Andrés Acuña | Ingeniero Mecatrónico & Líder Técnico</title>
+  <meta name="description" content="Portafolio profesional de José Andrés Acuña Herrera - Ingeniero Mecatrónico especializado en Sistemas Embebidos, IoT, Automatización Industrial, SCADA y Liderazgo IEEE.">
+  <meta name="keywords" content="Ingeniería Mecatrónica, IoT, SCADA, PLC Siemens, ESP32, ROS 2, Robótica, Ecuador, IEEE">
+  <meta name="author" content="José Andrés Acuña Herrera">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="José Andrés Acuña | Ingeniero Mecatrónico">
+  <meta property="og:description" content="Automatización industrial, sistemas embebidos, IoT y proyectos mecatrónicos de alto impacto.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Elements -->
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">JoseAcuña</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link">Sobre Mí</a>
+        <a href="#skills" class="nav-link">Habilidades</a>
+        <a href="#projects" class="nav-link">Proyectos</a>
+        <a href="#experience" class="nav-link">Experiencia</a>
+        <a href="#leadership" class="nav-link">Liderazgo</a>
+        <a href="#contact" class="nav-link">Contacto</a>
+        <a href="./cv.md" class="btn-nav-cv" target="_blank"><i class="fa-solid fa-file-lines"></i> CV.md</a>
+      </nav>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-profile-row">
+            <div class="profile-avatar-wrapper">
+              <img src="assets/images/profile.png" alt="José Andrés Acuña Herrera" class="profile-avatar-img" onerror="this.onerror=null; this.src='https://avatars.githubusercontent.com/u/171995231?v=4';">
+            </div>
+            <div class="status-badge">
+              <span class="pulse-dot"></span>
+              <span>Disponible para Proyectos & R&D</span>
+            </div>
+          </div>
+          
+          <h1 class="hero-title">
+            Transformando ideas en <span class="gradient-text">sistemas ciberfísicos</span> de alto impacto.
+          </h1>
+
+          <p class="hero-subtitle">
+            Soy <strong>José Andrés Acuña Herrera</strong>, Ingeniero Mecatrónico graduado de la Universidad de las Fuerzas Armadas ESPE. Especializado en <strong>sistemas embebidos, IoT, automatización industrial (PLC/SCADA) y robótica</strong>, combinando rigor técnico con liderazgo internacional en IEEE.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explorar Proyectos</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="./cv.md" class="btn btn-secondary" target="_blank">
+              <i class="fa-solid fa-download"></i>
+              <span>Ver CV Completo</span>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <span>Contactar</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics -->
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-number">6+</span>
+              <span class="metric-label">Años Formación & Práctica</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">4+</span>
+              <span class="metric-label">Roles Liderazgo IEEE</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">10+</span>
+              <span class="metric-label">Tecnologías de Control e IoT</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">B2</span>
+              <span class="metric-label">Inglés Intercultural</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="terminal-title">jose_acuna_profile.json</span>
+            </div>
+            <div class="terminal-body">
+              <pre><code><span class="json-key">"profile"</span>: {
+  <span class="json-key">"name"</span>: <span class="json-str">"José Andrés Acuña Herrera"</span>,
+  <span class="json-key">"degree"</span>: <span class="json-str">"Ingeniero Mecatrónico"</span>,
+  <span class="json-key">"university"</span>: <span class="json-str">"ESPE - Ecuador"</span>,
+  <span class="json-key">"core_focus"</span>: [
+    <span class="json-str">"IoT & Embedded Systems"</span>,
+    <span class="json-str">"Industrial Automation (PLC/SCADA)"</span>,
+    <span class="json-str">"Biomechatronics & Control"</span>
+  ],
+  <span class="json-key">"leadership"</span>: <span class="json-str">"Ecuador Section Lead @ IEEEXtreme 19.0"</span>,
+  <span class="json-key">"cambridge_certified"</span>: <span class="json-bool">true</span>,
+  <span class="json-key">"status"</span>: <span class="json-str">"Building the future of automation"</span>
+}</code></pre>
+            </div>
+            <div class="terminal-footer">
+              <div class="terminal-badge"><i class="fa-solid fa-microchip"></i> Hardware</div>
+              <div class="terminal-badge"><i class="fa-solid fa-code"></i> Firmware</div>
+              <div class="terminal-badge"><i class="fa-solid fa-network-wired"></i> SCADA/IoT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Conocimiento y Enfoque</span>
+          <h2 class="section-title">Ingeniería Integral: del Sensor a la Nube</h2>
+          <p class="section-description">
+            Mi perfil integra el diseño mecánico de precisión, la electrónica embebida, la programación en tiempo real y la automatización industrial con una visión estratégica de gestión.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card feature-card">
+            <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+            <h3>Sistemas Embebidos & IoT</h3>
+            <p>Diseño de redes sensoriales autónomas de bajo consumo con ESP32, Raspberry Pi 5 y tecnología LoRaWAN. Integración de buses I2C, SPI y UART con telemetría en la nube.</p>
+          </div>
+
+          <div class="about-card feature-card">
+            <div class="card-icon"><i class="fa-solid fa-industry"></i></div>
+            <h3>Automatización & SCADA</h3>
+            <p>Programación modular en SCL para PLCs Siemens S7-1200/1500, simulación de gemelos digitales con Factory I/O y desarrollo de interfaces HMI/SCADA industriales.</p>
+          </div>
+
+          <div class="about-card feature-card">
+            <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+            <h3>Robótica & Control Inteligente</h3>
+            <p>Modelado dinámico y validación biomecánica en Simulink/Simscape. Aplicación de algoritmos de Control Difuso y Machine Learning para rehabilitación y robótica adaptativa.</p>
+          </div>
+
+          <div class="about-card feature-card">
+            <div class="card-icon"><i class="fa-solid fa-users-gear"></i></div>
+            <h3>Liderazgo & Gestión Global</h3>
+            <p>Certificado por la Universidad de Cambridge en Liderazgo Global. Gestión y articulación de equipos multidisciplinarios en el ecosistema internacional de IEEE.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Matrix Section -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Herramientas y Tecnologías</span>
+          <h2 class="section-title">Stack Tecnológico Especializado</h2>
+          <p class="section-description">Competencias técnicas dominadas a lo largo de proyectos industriales, I+D y liderazgo académico.</p>
+        </div>
+
+        <div class="skills-wrapper">
+          <!-- Category 1 -->
+          <div class="skills-category">
+            <div class="category-header">
+              <i class="fa-solid fa-sliders"></i>
+              <h3>Automatización & Control</h3>
+            </div>
+            <div class="skills-tags">
+              <span class="skill-tag">Siemens S7-1200 / 1500</span>
+              <span class="skill-tag">TIA Portal (SCL/KOP)</span>
+              <span class="skill-tag">Factory I/O</span>
+              <span class="skill-tag">Ignition SCADA</span>
+              <span class="skill-tag">OPC UA & Node-RED</span>
+              <span class="skill-tag">Kinco DTools HMI</span>
+              <span class="skill-tag">VNC Viewer</span>
+              <span class="skill-tag">FlexSim & LabVIEW</span>
+            </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="skills-category">
+            <div class="category-header">
+              <i class="fa-solid fa-wifi"></i>
+              <h3>Sistemas Embebidos & IoT</h3>
+            </div>
+            <div class="skills-tags">
+              <span class="skill-tag">ESP32 / ESP8266</span>
+              <span class="skill-tag">Raspberry Pi 5</span>
+              <span class="skill-tag">LoRa & LoRaWAN</span>
+              <span class="skill-tag">I2C / SPI / UART / CAN</span>
+              <span class="skill-tag">Encoders AS5600</span>
+              <span class="skill-tag">Celdas de Carga HX711</span>
+              <span class="skill-tag">Arduino Framework</span>
+            </div>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="skills-category">
+            <div class="category-header">
+              <i class="fa-solid fa-brain"></i>
+              <h3>Control, IA & Robótica</h3>
+            </div>
+            <div class="skills-tags">
+              <span class="skill-tag">MATLAB & Simulink</span>
+              <span class="skill-tag">Simscape Multibody</span>
+              <span class="skill-tag">ROS 2</span>
+              <span class="skill-tag">Control Difuso (Fuzzy)</span>
+              <span class="skill-tag">Machine Learning (Scikit-Learn)</span>
+              <span class="skill-tag">Random Forest Classifier</span>
+            </div>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="skills-category">
+            <div class="category-header">
+              <i class="fa-solid fa-cubes"></i>
+              <h3>CAD/CAM, Electrónica & Software</h3>
+            </div>
+            <div class="skills-tags">
+              <span class="skill-tag">Autodesk Inventor</span>
+              <span class="skill-tag">SolidWorks</span>
+              <span class="skill-tag">ANSYS CAE</span>
+              <span class="skill-tag">KiCad & Proteus</span>
+              <span class="skill-tag">Python (FastAPI, Pandas)</span>
+              <span class="skill-tag">C / C++</span>
+              <span class="skill-tag">Impresión 3D Bambu Lab</span>
+              <span class="skill-tag">Git & GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Portafolio de Proyectos</span>
+          <h2 class="section-title">Soluciones Mecatrónicas e Industriales</h2>
+          <p class="section-description">Proyectos aplicados con impacto medible en salud biomecánica, agricultura de precisión e industria 4.0.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="pwa">Software & PWA</button>
+          <button class="filter-btn" data-filter="robotics">Robótica & Salud</button>
+          <button class="filter-btn" data-filter="iot">IoT & AgriTech</button>
+          <button class="filter-btn" data-filter="automation">Automatización & SCADA</button>
+          <button class="filter-btn" data-filter="aerospace">I+D Aeroespacial</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+
+          <!-- Project: THE GOAT -->
+          <article class="project-card" data-category="pwa">
+            <div class="project-card-banner has-photo">
+              <img src="assets/images/the-goat.png" alt="THE GOAT Platform" class="project-banner-img" onclick="openImageModal(this.src, 'THE GOAT — Sistema Gift Cards & RFID Tap-Beer')">
+              <div class="project-badge"><i class="fa-solid fa-beer-mug-empty"></i> Fullstack & RFID</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-title-row">
+                <h3 class="project-title">THE GOAT — Sistema Gift Cards & RFID Tap-Beer</h3>
+                <div class="project-actions">
+                  <a href="https://the-goat-giftcards.vercel.app" target="_blank" class="btn-live-demo" title="Probar Aplicación en Vivo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                  </a>
+                  <span class="badge-private" title="Código comercial en repositorio privado"><i class="fa-solid fa-lock"></i></span>
+                </div>
+              </div>
+              <p class="project-desc">
+                Plataforma web en producción para venta online de gift cards digitales, generación criptográfica SHA-256 y app PWA POS para cajeros con escáner QR anti-rebote para abono de saldo a manillas RFID en bares de autoservicio.
+              </p>
+              
+              <div class="project-highlights">
+                <div class="highlight-item"><i class="fa-solid fa-globe"></i> <strong>Producción:</strong> Desplegado en Vercel (<a href="https://the-goat-giftcards.vercel.app" target="_blank" class="highlight-link">the-goat-giftcards.vercel.app</a>)</div>
+                <div class="highlight-item"><i class="fa-solid fa-shield-halved"></i> <strong>Seguridad & RPC:</strong> Supabase (PostgreSQL + RLS + RPC atómico <code>redeem_gift_card</code> con FOR UPDATE)</div>
+                <div class="highlight-item"><i class="fa-solid fa-qrcode"></i> <strong>PWA POS:</strong> Escáner QR (html5-qrcode) con cerrojo atómico y Web Audio API</div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span>Next.js</span>
+                <span>TypeScript</span>
+                <span>Supabase</span>
+                <span>Tailwind CSS</span>
+                <span>PWA POS</span>
+                <span>Vercel</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project: Sistema Robótico de Almacenamiento & AGV -->
+          <article class="project-card" data-category="robotics">
+            <div class="project-card-banner has-photo">
+              <img src="assets/images/agv-storage.png" alt="Sistema Robótico Storage AGV" class="project-banner-img" onclick="openImageModal(this.src, 'Sistema Robótico de Almacenamiento & AGV (AS/RS Logístico)')">
+              <div class="project-badge"><i class="fa-solid fa-robot"></i> AS/RS + AGV Logístico</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-title-row">
+                <h3 class="project-title">Sistema Robótico de Almacenamiento (Storage & AGV)</h3>
+                <div class="project-actions">
+                  <span class="badge-private" title="Código en repositorio privado"><i class="fa-solid fa-lock"></i> Privado</span>
+                </div>
+              </div>
+              <p class="project-desc">
+                Simulador cinemático y suite de control en Python/PyQt6 para prototipo logístico automatizado con 3 brazos robóticos, casilleros curvados y plataforma móvil AGV sobre pista central.
+              </p>
+              
+              <div class="project-highlights">
+                <div class="highlight-item"><i class="fa-solid fa-shuffle"></i> <strong>Operaciones:</strong> Despacho directo HOME ➔ Slot y reubicación coordinada entre estaciones</div>
+                <div class="highlight-item"><i class="fa-solid fa-tags"></i> <strong>Simulación RFID:</strong> Sensor virtual A-E para validación lógica sin sensor físico</div>
+                <div class="highlight-item"><i class="fa-solid fa-network-wired"></i> <strong>Comunicaciones:</strong> Generación y parseo de tramas JSON para microcontrolador serial</div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span>Python</span>
+                <span>PyQt6</span>
+                <span>Cinemática Robótica</span>
+                <span>AGV</span>
+                <span>Serial JSON</span>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Project: Compukit Taller -->
+          <article class="project-card" data-category="pwa">
+            <div class="project-card-banner has-photo">
+              <img src="assets/images/compukit.png" alt="Compukit Taller PWA" class="project-banner-img" onclick="openImageModal(this.src, 'Compukit Taller — Sistema PWA de Gestión Técnica')">
+              <div class="project-badge"><i class="fa-solid fa-mobile-screen"></i> PWA Offline-First</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-title-row">
+                <h3 class="project-title">Compukit Taller — Sistema de Gestión Técnica</h3>
+                <div class="project-actions">
+                  <a href="https://jose-beeb.github.io/compukit-taller/" target="_blank" class="btn-live-demo" title="Probar PWA en Vivo">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                  </a>
+                  <a href="https://github.com/Jose-beeb/compukit-taller" target="_blank" class="project-repo-link" title="Ver código en GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <p class="project-desc">
+                PWA para recepción y seguimiento de soporte técnico de hardware con arquitectura offline-first, dictado por voz y sincronización en la nube.
+              </p>
+              
+              <div class="project-highlights">
+                <div class="highlight-item"><i class="fa-solid fa-globe"></i> <strong>En Vivo:</strong> Desplegado en GitHub Pages (<a href="https://jose-beeb.github.io/compukit-taller/" target="_blank" class="highlight-link">jose-beeb.github.io/compukit-taller</a>)</div>
+                <div class="highlight-item"><i class="fa-solid fa-microphone-lines"></i> <strong>Entrada:</strong> Web Speech API (dictado) + Captura de cámara</div>
+                <div class="highlight-item"><i class="fa-solid fa-cloud-arrow-up"></i> <strong>Sincronización:</strong> Cola LocalStorage + Google Apps Script / Sheets / Drive</div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span>PWA</span>
+                <span>JavaScript ES6+</span>
+                <span>Google Apps Script</span>
+                <span>Web Speech API</span>
+                <span>jsPDF</span>
+                <span>LocalStorage Sync</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project: Rehabilitación de Rodilla -->
+          <article class="project-card" data-category="robotics">
+            <div class="project-card-banner has-photo">
+              <img src="assets/images/knee-rehab.png" alt="Dispositivo Robótico de Rodilla" class="project-banner-img" onclick="openImageModal(this.src, 'Dispositivo Robótico para Rehabilitación de Rodilla')">
+              <div class="project-badge"><i class="fa-solid fa-person-walking"></i> Biomecatrónica</div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Dispositivo Robótico para Rehabilitación de Rodilla</h3>
+              <p class="project-desc">
+                Sistema mecatrónico de rehabilitación activa y pasiva con control de fuerza y posición angular en tiempo real, adaptativo al progreso del paciente.
+              </p>
+              
+              <div class="project-highlights">
+                <div class="highlight-item"><i class="fa-solid fa-bolt"></i> <strong>Actuación:</strong> NEMA 23 + Husillo de bolas de alta precisión</div>
+                <div class="highlight-item"><i class="fa-solid fa-satellite-dish"></i> <strong>Sensores:</strong> Encoder magnético AS5600 + Celda HX711</div>
+                <div class="highlight-item"><i class="fa-solid fa-microchip"></i> <strong>Control:</strong> Control Difuso + Clasificación Random Forest</div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span>Raspberry Pi 5</span>
+                <span>ESP32</span>
+                <span>Simulink</span>
+                <span>Simscape</span>
+                <span>Python</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project: Lora Kipu -->
+          <article class="project-card" data-category="iot">
+            <div class="project-card-banner has-photo">
+              <img src="assets/images/lora-kipu.jpg" alt="Lora Kipu IoT Node (Render Conceptual)" class="project-banner-img" onclick="openImageModal(this.src, 'Lora Kipu — Red IoT Microclimática (Render Conceptual)')">
+              <div class="project-badge"><i class="fa-solid fa-seedling"></i> AgriTech & IoT <span style="opacity:0.75; font-size:0.68rem; margin-left:4px;">(Render)</span></div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Lora Kipu — Red IoT Microclimática</h3>
+              <p class="project-desc">
+                Red inalámbrica autónoma de bajo consumo para monitorización ambiental y detección temprana de fitopatologías en cultivos de cacao.
+              </p>
+
+              <div class="project-highlights">
+                <div class="highlight-item"><i class="fa-solid fa-signal"></i> <strong>Comunicaciones:</strong> Nodos LoRa / LoRaWAN de largo alcance</div>
+                <div class="highlight-item"><i class="fa-solid fa-server"></i> <strong>Backend:</strong> Microservicios FastAPI + Base de datos distribuida</div>
+                <div class="highlight-item"><i class="fa-solid fa-chart-line"></i> <strong>Modelos IA:</strong> Predicción climática y riesgo fitopatológico</div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span>ESP32</span>
+                <span>LoRaWAN</span>
+                <span>FastAPI</span>
+                <span>Machine Learning</span>
+                <span>Python</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project: Gemelo Digital & SCADA -->
+          <article class="project-card" data-category="automation">
+            <div class="project-card-banner has-photo">
+              <img src="assets/images/scada-twin1.png" alt="Gemelo Digital SCADA" class="project-banner-img" id="scada-main-img" onclick="openImageModal(this.src, 'Gemelo Digital & SCADA de Manufactura')">
+              <div class="project-badge"><i class="fa-solid fa-gears"></i> Industria 4.0</div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Gemelo Digital & SCADA de Manufactura</h3>
+              <p class="project-desc">
+                Emulación integral de celdas de ensamblaje industrial conectadas a controlador lógico programable Siemens y sistema SCADA en tiempo real.
+              </p>
+
+              <!-- Gallery selector -->
+              <div class="project-thumbnail-gallery">
+                <img src="assets/images/scada-twin1.png" alt="Vista 1" class="thumb-img active" onclick="swapMainImage('scada-main-img', this.src)">
+                <img src="assets/images/scada-twin2.png" alt="Vista 2" class="thumb-img" onclick="swapMainImage('scada-main-img', this.src)">
+                <img src="assets/images/scada-twin3.png" alt="Vista 3" class="thumb-img" onclick="swapMainImage('scada-main-img', this.src)">
+              </div>
+
+              <div class="project-highlights">
+                <div class="highlight-item"><i class="fa-solid fa-code"></i> <strong>Control PLC:</strong> Siemens S7-1200/1500 programado en SCL</div>
+                <div class="highlight-item"><i class="fa-solid fa-network-wired"></i> <strong>Protocolo:</strong> Enlace industrial OPC UA de baja latencia</div>
+                <div class="highlight-item"><i class="fa-solid fa-desktop"></i> <strong>Supervisión:</strong> Dashboard SCADA en Ignition Designer con KPIs</div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span>Siemens S7</span>
+                <span>TIA Portal</span>
+                <span>Factory I/O</span>
+                <span>Ignition SCADA</span>
+                <span>OPC UA</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project: Horno CIDFAE -->
+          <article class="project-card" data-category="aerospace">
+            <div class="project-card-banner has-photo">
+              <img src="assets/images/cidfae-oven.png" alt="Horno de Curado CIDFAE" class="project-banner-img" id="cidfae-main-img" onclick="openImageModal(this.src, 'Reacondicionamiento de Horno de Curado (CIDFAE)')">
+              <div class="project-badge"><i class="fa-solid fa-plane-departure"></i> I+D Aeroespacial</div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Reacondicionamiento de Horno de Curado (CIDFAE)</h3>
+              <p class="project-desc">
+                Modernización del sistema de potencia, control térmico e interfaz humano-máquina para procesado de materiales compuestos aeroespaciales.
+              </p>
+
+              <!-- Gallery selector -->
+              <div class="project-thumbnail-gallery">
+                <img src="assets/images/cidfae-oven.png" alt="Horno Físico" class="thumb-img active" onclick="swapMainImage('cidfae-main-img', this.src)">
+                <img src="assets/images/cidfae-oven_editor.png" alt="Editor HMI" class="thumb-img" onclick="swapMainImage('cidfae-main-img', this.src)">
+              </div>
+
+              <div class="project-highlights">
+                <div class="highlight-item"><i class="fa-solid fa-display"></i> <strong>HMI:</strong> Rediseño de pantallas de control y alarmas en Kinco DTools</div>
+                <div class="highlight-item"><i class="fa-solid fa-wifi"></i> <strong>Telemetría:</strong> Supervisión y diagnóstico remoto seguro con VNC</div>
+                <div class="highlight-item"><i class="fa-solid fa-bolt"></i> <strong>Potencia:</strong> Sustitución de conductores y aseguramiento de contacto</div>
+              </div>
+
+              <div class="project-tech-tags">
+                <span>HMI Kinco</span>
+                <span>DTools 4.5.6</span>
+                <span>VNC Viewer</span>
+                <span>Control Térmico</span>
+                <span>Hardware TI</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience & Leadership Section -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Trayectoria & Responsabilidad</span>
+          <h2 class="section-title">Experiencia Profesional y Liderazgo</h2>
+          <p class="section-description">Historial de contribución en ingeniería, investigación, soporte tecnológico y dirección comunitaria.</p>
+        </div>
+
+        <div class="timeline-container">
+          
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <span class="timeline-role">Pasante de Ingeniería Mecatrónica (I+D Aeroespacial)</span>
+                <span class="timeline-date">Mar. 2026 – Jun. 2026</span>
+              </div>
+              <span class="timeline-company">CIDFAE — Centro de Investigación y Desarrollo de la FAE</span>
+              <p class="timeline-desc">
+                Liderazgo técnico en el reacondicionamiento del horno de curado automático, rediseño de interfaz HMI (Kinco DTools) y configuración de monitoreo remoto en red vía VNC Viewer.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <span class="timeline-role">Ecuador Section Lead</span>
+                <span class="timeline-date">Mar. 2025 – Dic. 2025</span>
+              </div>
+              <span class="timeline-company">IEEEXtreme 19.0 — IEEE Global Programming Competition</span>
+              <p class="timeline-desc">
+                Coordinación y liderazgo nacional de ramas estudiantiles en Ecuador, articulación de soporte para embajadores y promoción del evento a nivel país.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <span class="timeline-role">Presidente / Chair</span>
+                <span class="timeline-date">Ene. 2025 – Feb. 2026</span>
+              </div>
+              <span class="timeline-company">IEEE Student Branch — Universidad de las Fuerzas Armadas ESPE</span>
+              <p class="timeline-desc">
+                Gestión integral de operaciones de la rama estudiantil, fomento de actividades interdisciplinarias, organización de congresos técnicos y relaciones interinstitucionales.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <span class="timeline-role">Participante Internacional Work & Travel (Ride Operator)</span>
+                <span class="timeline-date">2024 – 2025</span>
+              </div>
+              <span class="timeline-company">Santa Cruz Seaside Co. (CA) & Six Flags Great Adventure (NJ), EE. UU.</span>
+              <p class="timeline-desc">
+                Operación de atracciones mecánicas y atención de alto volumen en entornos multiculturales bajo presión, operando 100% en idioma inglés con altos estándares de seguridad.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <span class="timeline-role">Asistente de Área TI & Técnico de Hardware</span>
+                <span class="timeline-date">2020 – 2022</span>
+              </div>
+              <span class="timeline-company">Libresoft S.A. / Compukit Integrated Systems</span>
+              <p class="timeline-desc">
+                Recuperación de información en medios de almacenamiento masivo (HDD/SSD), diagnóstico de anomalías de hardware y montaje de redes LAN y videovigilancia CCTV.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Leadership Highlight -->
+    <section class="section leadership-section" id="leadership">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Reconocimientos & Credenciales</span>
+          <h2 class="section-title">Certificaciones y Liderazgo Global</h2>
+        </div>
+
+        <div class="certs-grid">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="cert-info">
+              <h4>Global Leadership & Business Certification</h4>
+              <p class="cert-issuer">Clare College, University of Cambridge (Reino Unido, 2025)</p>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-handshake"></i></div>
+            <div class="cert-info">
+              <h4>Taller Internacional EMPRETEC</h4>
+              <p class="cert-issuer">Corporación ConQuito / UNCTAD (2025)</p>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
+            <div class="cert-info">
+              <h4>Programa LÍDER LAB 2026</h4>
+              <p class="cert-issuer">Corporación Líderes para Gobernar</p>
+            </div>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-cube"></i></div>
+            <div class="cert-info">
+              <h4>Multibody Simulation Onramp</h4>
+              <p class="cert-issuer">MathWorks (2026)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div class="contact-header text-center">
+            <span class="section-tag">Comuniquémonos</span>
+            <h2 class="section-title">¿Tenés un proyecto o querés sumar talento a tu equipo?</h2>
+            <p class="section-description">
+              Estoy abierto a oportunidades en ingeniería mecatrónica, desarrollo de sistemas IoT, automatización industrial, control y liderazgo técnico.
+            </p>
+          </div>
+
+          <div class="contact-links-grid">
+            
+            <div class="contact-link-item">
+              <div class="link-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="link-details">
+                <span class="link-label">Correo Principal</span>
+                <a href="mailto:jaacunainusa@gmail.com" class="link-value">jaacunainusa@gmail.com</a>
+              </div>
+              <button class="btn-copy" onclick="copyToClipboard('jaacunainusa@gmail.com')" title="Copiar correo">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <div class="contact-link-item">
+              <div class="link-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+              <div class="link-details">
+                <span class="link-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/joseacuñah" target="_blank" class="link-value">linkedin.com/in/joseacuñah</a>
+              </div>
+              <a href="https://linkedin.com/in/joseacuñah" target="_blank" class="btn-visit"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+
+            <div class="contact-link-item">
+              <div class="link-icon"><i class="fa-brands fa-github"></i></div>
+              <div class="link-details">
+                <span class="link-label">GitHub</span>
+                <a href="https://github.com/jose-beeb" target="_blank" class="link-value">github.com/jose-beeb</a>
+              </div>
+              <a href="https://github.com/jose-beeb" target="_blank" class="btn-visit"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+
+            <div class="contact-link-item">
+              <div class="link-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="link-details">
+                <span class="link-label">Ubicación</span>
+                <span class="link-value">Sangolquí / Quito, Ecuador</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="cv-cta-banner">
+            <div class="cv-cta-text">
+              <h4>¿Querés revisar el historial detallado de mi trayectoria?</h4>
+              <p>Podés consultar la versión Markdown interactiva o descargar la información en cualquier momento.</p>
+            </div>
+            <a href="./cv.md" target="_blank" class="btn btn-primary">
+              <i class="fa-solid fa-file-code"></i>
+              <span>Abrir cv.md</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Image Lightbox Modal -->
+  <div class="image-modal" id="image-modal" onclick="closeImageModal()">
+    <div class="image-modal-content" onclick="event.stopPropagation()">
+      <button class="image-modal-close" onclick="closeImageModal()" aria-label="Cerrar vista previa"><i class="fa-solid fa-xmark"></i></button>
+      <img src="" alt="Vista previa" id="modal-img">
+      <div class="image-modal-caption" id="modal-caption"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-check-circle"></i>
+    <span id="toast-message">Correo copiado al portapapeles</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>© 2026 José Andrés Acuña Herrera. Diseñado con excelencia y precisión de ingeniería.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/jose-beeb" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/joseacuñah" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="mailto:jaacunainusa@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

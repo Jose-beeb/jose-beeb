@@ -1,0 +1,62 @@
+# José Andrés Acuña Herrera
+**Ingeniero Mecatrónico | Automatización, Sistemas Embebidos e IoT | Liderazgo Técnico**
+
+📍 Quito, Ecuador  
+🔗 [LinkedIn](https://www.linkedin.com/) | 📧 [Correo Electrónico] | 🌐 [Portafolio Web / Blog]
+
+---
+
+## 👨‍💻 Sobre Mí
+
+Ingeniero Mecatrónico graduado de la **Universidad de las Fuerzas Armadas ESPE**, enfocado en la convergencia entre hardware, control inteligente, automatización industrial y desarrollo de software embebido. Cuento con una sólida trayectoria en el diseño de sistemas ciberfísicos, prototipado rápido, modelado 3D e implementación de arquitecturas IoT / SCADA para aplicaciones biomédicas, agrícolas e industriales.
+
+Mi experiencia técnica se complementa con un fuerte perfil de liderazgo comunitario e internacional dentro del ecosistema **IEEE**, habiendo liderado ramas estudiantiles, capítulos técnicos (EMBS, RAS) y competencias globales de programación a nivel regional (IEEEXtreme). Me apasiona resolver problemas complejos mediante la ingeniería aplicada, el trabajo en equipo y el desarrollo de tecnologías de impacto.
+
+---
+
+## 🛠️ Stack Tecnológico & Habilidades
+
+* **Sistemas Embebidos & IoT:** ESP32, ESP8266, Raspberry Pi 5, LoRa / LoRaWAN, protocolos I2C/SPI/UART, encoders magnéticos (AS5600), celdas de carga y sensores ambientales.
+* **Automatización & SCADA:** Siemens S7-1200 / S7-1500, TIA Portal (SCL/KOP), Factory I/O, Ignition SCADA, OPC UA, Node-RED.
+* **Control, Modelado & Robótica:** ROS 2, MATLAB & Simulink, Simscape, Control Difuso (Fuzzy Logic), Algoritmos de Machine Learning aplicados (Random Forest, Scikit-learn).
+* **Lenguajes & Software:** Python (FastAPI, NumPy, Pandas), C/C++ (Arduino/ESP-IDF), MATLAB, Git/GitHub.
+* **Diseño Mecánico & Manufactura:** Autodesk Inventor (CAD/CAM), Blender, Impresión 3D FDM (Bambu Lab / Creality), corte y grabado láser.
+
+---
+
+## 🚀 Proyectos Destacados
+
+### 🦿 Dispositivo Robótico para Rehabilitación de Miembro Inferior (Rodilla)
+* **Descripción:** Sistema mecatrónico de rehabilitación activa/pasiva con control de fuerza y posición angular en tiempo real.
+* **Tecnología:** Raspberry Pi 5, ESP32, Motor NEMA 23 con husillo de bolas, sensor AS5600, celda de carga con amplificador HX711, Control Difuso y clasificación con Random Forest.
+* **Impacto:** Prototipo funcional validado biomecánicamente mediante modelos físicos en Simulink/Simscape y adquisición continua de telemetría.
+
+### 🌾 Lora Kipu — Monitoreo Microclimático & Detección Temprana en Cultivos (AgriTech)
+* **Descripción:** Red de nodos sensores autónomos de bajo consumo para la monitorización ambiental y predicción de enfermedades fúngicas en plantaciones de cacao.
+* **Tecnología:** LoRaWAN, ESP32, backend en Python (FastAPI), modelos predictivos de Machine Learning, dashboards de visualización en la nube.
+* **Impacto:** Co-fundador de la iniciativa; reducción de pérdidas agrícolas mediante alertas tempranas y optimización del uso de recursos.
+
+### 🏭 Gemelo Digital & Control SCADA para Líneas de Ensamblaje
+* **Descripción:** Simulación e integración integral de celdas de manufactura virtualizadas conectadas a PLC y sistema SCADA.
+* **Tecnología:** Factory I/O, Siemens S7-1200/1500 (código modular en SCL), Ignition Designer vía OPC UA.
+* **Impacto:** Plataforma para validación de lógica de control antes de despliegues físicos y monitoreo de KPIs operativos.
+
+---
+
+## 🏆 Liderazgo, Certificaciones & Comunidad
+
+* **Liderazgo IEEE:**
+  * Ecuador Section Lead — *IEEEXtreme 19.0* (2025).
+  * Chair — *IEEE ESPE Student Branch*.
+  * Vice Chair — *IEEE Engineering in Medicine and Biology Society (EMBS) ESPE*.
+  * Ex Vice Chair & Secretario — *IEEE Robotics and Automation Society (RAS) ESPE*.
+* **Formación Internacional:** *Global Leadership & Business Certification* — Clare College, University of Cambridge (2025).
+* **Desarrollo de Liderazgo:** Participante seleccionado en *LÍDER LAB 2026* (Corporación Líderes para Gobernar).
+* **Voluntariado Técnico:** Co-organizador y relaciones universitarias en *Google DevFest Quito (GDG Ecuador)*.
+
+---
+
+## 📊 Estadísticas de GitHub
+
+```text
+[Inserta aquí tus tarjetas de GitHub Stats y Top Languages de github-readme-stats]
