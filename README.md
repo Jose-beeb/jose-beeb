@@ -82,10 +82,11 @@
       </ul>
     </td>
     <td width="50%" valign="top">
-      <img src="./assets/images/agv-storage.png" alt="Storage AGV" width="100%"/>
+      <a href="https://youtu.be/2pD4KcC07y4"><img src="./assets/images/agv-storage.png" alt="Storage AGV" width="100%"/></a>
       <h3>🤖 Sistema Robótico de Almacenamiento & AGV (AS/RS)</h3>
       <p>Simulador cinemático y suite de monitoreo para prototipo logístico automatizado con 3 brazos robóticos, casilleros curvados (9 slots) y plataforma móvil AGV sobre pista guiada central.</p>
       <ul>
+        <li><b>▶ Video Demo:</b> <a href="https://youtu.be/2pD4KcC07y4">Ver Funcionamiento en YouTube</a></li>
         <li><b>Software & GUI:</b> Python con interfaz modular en PyQt6.</li>
         <li><b>Control & Cinemática:</b> Despacho directo HOME ➔ Slot, reubicación coordinada entre estaciones y simulación de tags RFID (A-E).</li>
         <li><b>Comunicaciones:</b> Generador de tramas seriales JSON para microcontroladores y validaciones modales de seguridad (QMessageBox).</li>
@@ -106,10 +107,11 @@
       </ul>
     </td>
     <td width="50%" valign="top">
-      <img src="./assets/images/knee-rehab.png" alt="Rehabilitador de Rodilla" width="100%"/>
+      <a href="https://youtu.be/Myn2MfTO_Dw"><img src="./assets/images/knee-rehab.png" alt="Rehabilitador de Rodilla" width="100%"/></a>
       <h3>🦿 Exoesqueleto / Rehabilitador Robótico de Rodilla</h3>
       <p>Dispositivo mecatrónico activo/pasivo para rehabilitación de miembros inferiores con telemetría en tiempo real.</p>
       <ul>
+        <li><b>▶ Video Demo:</b> <a href="https://youtu.be/Myn2MfTO_Dw">Ver Demostración Biomecánica en YouTube</a></li>
         <li><b>Hardware:</b> Raspberry Pi 5, ESP32, NEMA 23 + husillo, encoder AS5600 y celda HX711.</li>
         <li><b>Control & IA:</b> Control Difuso adaptativo y clasificación con Random Forest.</li>
         <li><b>Simulación:</b> Modelado dinámico en MATLAB Simulink/Simscape.</li>
@@ -123,16 +125,16 @@
       <p>Red de nodos sensores de ultra bajo consumo para monitoreo microclimático y prevención de plagas en cultivos de cacao con ESP32, LoRaWAN y backend FastAPI.</p>
     </td>
     <td width="50%" valign="top">
-      <img src="./assets/images/scada-twin1.png" alt="Gemelo Digital SCADA" width="100%"/>
+      <a href="https://youtube.com/shorts/luxnUp_XqdI"><img src="./assets/images/scada-twin1.png" alt="Gemelo Digital SCADA" width="100%"/></a>
       <h3>🏭 Gemelo Digital & SCADA de Manufactura</h3>
-      <p>Celda de manufactura virtualizada con PLC Siemens S7-1200/1500 (SCL en TIA Portal), integración OPC UA y supervisión SCADA en Ignition Designer.</p>
+      <p>Celda de manufactura virtualizada con PLC Siemens S7-1200/1500 (SCL en TIA Portal), integración OPC UA y supervisión SCADA en Ignition Designer. <br/>▶ <b><a href="https://youtube.com/shorts/luxnUp_XqdI">Ver Simulación en YouTube Shorts</a></b></p>
     </td>
   </tr>
   <tr>
     <td colspan="2" valign="top">
-      <img src="./assets/images/cidfae-oven.png" alt="Horno de Curado CIDFAE" width="100%"/>
+      <a href="https://youtube.com/shorts/quRxPrLFzec"><img src="./assets/images/cidfae-oven.png" alt="Horno de Curado CIDFAE" width="100%"/></a>
       <h3>🔥 Reacondicionamiento de Horno de Curado Aeroespacial (CIDFAE)</h3>
-      <p>Modernización de potencia, control térmico e interfaz HMI en Kinco DTools v4.5.6 con monitoreo remoto VNC para procesamiento de compuestos en I+D aeroespacial.</p>
+      <p>Modernización de potencia, control térmico e interfaz HMI en Kinco DTools v4.5.6 con monitoreo remoto VNC para procesamiento de compuestos en I+D aeroespacial. <br/>▶ <b><a href="https://youtube.com/shorts/quRxPrLFzec">Ver Operación de Horno en YouTube Shorts</a></b></p>
     </td>
   </tr>
 </table>

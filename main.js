@@ -191,12 +191,66 @@ function closeImageModal() {
   document.body.style.overflow = '';
 }
 
-// Close on Escape key
+/**
+ * Open Video Player Modal (YouTube)
+ */
+function openVideoModal(videoId, caption) {
+  const modal = document.getElementById('video-modal');
+  const videoContainer = document.getElementById('video-container');
+  const videoCaption = document.getElementById('video-caption');
+  const modalContent = modal ? modal.querySelector('.video-modal-content') : null;
+
+  if (!modal || !videoContainer) return;
+
+  // Check if it's a YouTube Short or regular video
+  const isShort = caption && caption.toLowerCase().includes('shorts');
+  if (modalContent) {
+    if (isShort) {
+      modalContent.classList.add('is-short');
+    } else {
+      modalContent.classList.remove('is-short');
+    }
+  }
+
+  // Inject responsive YouTube iframe with autoplay
+  videoContainer.innerHTML = `
+    <iframe 
+      src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1" 
+      title="${caption || 'Video Demo'}" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  `;
+
+  videoCaption.textContent = caption || '';
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+/**
+ * Close Video Player Modal and Stop Playback
+ */
+function closeVideoModal() {
+  const modal = document.getElementById('video-modal');
+  const videoContainer = document.getElementById('video-container');
+
+  if (!modal) return;
+
+  modal.classList.remove('active');
+  if (videoContainer) {
+    videoContainer.innerHTML = ''; // Stops video audio/playback immediately
+  }
+  document.body.style.overflow = '';
+}
+
+// Close modals on Escape key
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeImageModal();
+    closeVideoModal();
   }
 });
+
 
 /**
  * Swap Main Banner Image when clicking gallery thumbnails

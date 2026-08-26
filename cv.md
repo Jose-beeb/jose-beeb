@@ -31,7 +31,7 @@ Sólida trayectoria de liderazgo internacional en **IEEE**, gestionando ramas es
 
 ### **CIDFAE — Centro de Investigación y Desarrollo de la Fuerza Aérea Ecuatoriana**
 **Pasante de Ingeniería Mecatrónica (I+D Aeroespacial)** | *Mar. 2026 – Jun. 2026* | *Sangolquí, Ecuador*
-* Liderazgo técnico en el reacondicionamiento de un horno de curado automático para materiales compuestos, ejecutando diagnósticos de potencia y reemplazo de conductores para optimizar la resistencia de contacto.
+* Liderazgo técnico en el reacondicionamiento de un horno de curado automático para materiales compuestos ([Ver Video Demo](https://youtube.com/shorts/quRxPrLFzec)), ejecutando diagnósticos de potencia y reemplazo de conductores para optimizar la resistencia de contacto.
 * Rediseño y optimización de la interfaz humano-máquina (HMI) en Kinco DTools v4.5.6, reestructurando variables de control y pantallas de gestión de alarmas.
 * Configuración de servicios de comunicación industrial y monitoreo remoto seguro en tiempo real mediante VNC Viewer.
 
@@ -59,7 +59,7 @@ Sólida trayectoria de liderazgo internacional en **IEEE**, gestionando ramas es
 * **Seguridad & Base de Datos:** Supabase (PostgreSQL + RLS), procedimiento RPC atómico `redeem_gift_card` con bloqueo `FOR UPDATE` para prevenir race conditions y generación de tokens de 24 bytes (SHA-256).
 * **Módulo POS Cajero:** PWA con lector QR por cámara (`html5-qrcode`), cerrojo atómico anti-doble lectura, Web Audio API y servicio de correos híbrido (Gmail SMTP + Resend API).
 
-### 2. Sistema Robótico de Almacenamiento & AGV (AS/RS Logístico)
+### 2. Sistema Robótico de Almacenamiento & AGV (AS/RS Logístico) ([Video Demo](https://youtu.be/2pD4KcC07y4))
 * **Arquitectura:** Software interactivo de simulación cinemática y monitoreo en Python/PyQt6 para prototipo de almacén automatizado con 3 brazos robóticos y plataforma móvil AGV *(Código privado)*.
 * **Control & Cinemática:** Despacho directo HOME ➔ Casillero, reubicación coordinada entre estaciones, simulación de sensores RFID (A-E) y gestión de seguridad modal (QMessageBox).
 * **Comunicaciones:** Generación y parseo de tramas JSON de alta velocidad enviadas por puerto serial hacia microcontroladores.
@@ -69,7 +69,7 @@ Sólida trayectoria de liderazgo internacional en **IEEE**, gestionando ramas es
 * **APIs & Backend:** Web Speech API para dictado por voz de diagnósticos, compresión Canvas para fotos de hardware y backend serverless en Google Apps Script enlazado a Google Drive y Sheets.
 * **Automatización:** Emisión de comprobantes digitales en PDF con jsPDF e integración de notificaciones vía WhatsApp Deep Links.
 
-### 4. Dispositivo Robótico para Rehabilitación de Miembro Inferior (Rodilla)
+### 4. Dispositivo Robótico para Rehabilitación de Miembro Inferior (Rodilla) ([Video Demo](https://youtu.be/Myn2MfTO_Dw))
 * **Arquitectura:** Raspberry Pi 5 + ESP32, actuador NEMA 23 con transmisión por husillo de bolas, encoder magnético AS5600, celda de carga con amplificador HX711.
 * **Control e IA:** Algoritmos de Control Difuso (Fuzzy Logic) para adaptación de carga activa/pasiva y clasificación biomecánica con Random Forest.
 * **Validación:** Modelado dinámico en MATLAB Simulink/Simscape con telemetría en tiempo real.
@@ -79,7 +79,7 @@ Sólida trayectoria de liderazgo internacional en **IEEE**, gestionando ramas es
 * **Software:** Backend reactivo en Python (FastAPI), modelos predictivos de enfermedades fúngicas en plantaciones de cacao y paneles de visualización.
 * **Impacto:** Co-fundador de la iniciativa orientada a reducir pérdidas agrícolas y optimizar recursos hídricos.
 
-### 6. Gemelo Digital & Sistema SCADA para Manufactura Automatizada
+### 6. Gemelo Digital & Sistema SCADA para Manufactura Automatizada ([Video Demo](https://youtube.com/shorts/luxnUp_XqdI))
 * **Arquitectura:** Simulación integral en Factory I/O conectada vía OPC UA con PLC Siemens S7-1200 / S7-1500 programado en SCL modular.
 * **Supervisión:** Dashboard SCADA en Ignition Designer con visualización de estados y métricas operativas (KPIs/OEE).
 
