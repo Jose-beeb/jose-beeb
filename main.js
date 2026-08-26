@@ -3,6 +3,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initI18n();
   initNavbarScroll();
   initMobileMenu();
   initProjectFilters();
@@ -10,6 +11,112 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initHeroParticles();
 });
+
+/**
+ * Internationalization (i18n) Engine & Language Auto-Detection
+ */
+function initI18n() {
+  if (typeof translations === 'undefined') return;
+
+  // 1. Determine Language
+  // Priority 1: User's saved preference in localStorage
+  let currentLang = localStorage.getItem('portfolio_lang');
+
+  if (!currentLang) {
+    // Priority 2: Browser navigator language
+    const userNavLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    
+    // Priority 3: Client TimeZone evaluation
+    let timeZone = '';
+    try {
+      timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    } catch (e) {}
+
+    const spanishTimezones = [
+      'Guayaquil', 'Bogota', 'Lima', 'Santiago', 'Buenos_Aires',
+      'Mexico_City', 'Madrid', 'Caracas', 'Montevideo', 'La_Paz',
+      'Asuncion', 'Costa_Rica', 'Panama', 'Guatemala', 'Tegucigalpa',
+      'El_Salvador', 'Managua', 'Santo_Domingo', 'Havana', 'San_Juan'
+    ];
+    const isSpanishZone = spanishTimezones.some(tz => timeZone.includes(tz));
+
+    if (userNavLang.startsWith('es') || isSpanishZone) {
+      currentLang = 'es';
+    } else {
+      currentLang = 'en';
+    }
+  }
+
+  // Set initial language
+  setLanguage(currentLang, false);
+
+  // Bind click handlers to language switcher buttons
+  const langButtons = document.querySelectorAll('.lang-btn');
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedLang = btn.getAttribute('data-lang');
+      if (selectedLang) {
+        setLanguage(selectedLang, true);
+      }
+    });
+  });
+}
+
+/**
+ * Apply selected language translations across the DOM
+ */
+function setLanguage(lang, savePreference = true) {
+  if (typeof translations === 'undefined' || !translations[lang]) return;
+
+  if (savePreference) {
+    localStorage.setItem('portfolio_lang', lang);
+  }
+
+  document.documentElement.lang = lang;
+
+  // Update active state on switcher buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  const langDict = translations[lang];
+
+  // 1. Text content replacement (data-i18n)
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (langDict[key]) {
+      el.textContent = langDict[key];
+    }
+  });
+
+  // 2. HTML content replacement (data-i18n-html)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (langDict[key]) {
+      el.innerHTML = langDict[key];
+    }
+  });
+
+  // 3. JSON formatted key elements in terminal
+  document.querySelectorAll('[data-i18n-json-key]').forEach(el => {
+    const key = el.getAttribute('data-i18n-json-key');
+    if (langDict[key]) {
+      el.textContent = `"${langDict[key]}"`;
+    }
+  });
+
+  // 4. JSON formatted value string elements in terminal
+  document.querySelectorAll('[data-i18n-json-str]').forEach(el => {
+    const key = el.getAttribute('data-i18n-json-str');
+    if (langDict[key]) {
+      el.textContent = `"${langDict[key]}"`;
+    }
+  });
+}
 
 /**
  * Handle Navbar styling on scroll

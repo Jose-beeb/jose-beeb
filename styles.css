@@ -214,6 +214,50 @@ h1, h2, h3, h4 {
   box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
 }
 
+/* Language Switcher */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 3px 4px;
+  gap: 2px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+}
+
+.lang-btn.active {
+  background: var(--accent-cyan);
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.35);
+}
+
+.nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .menu-toggle {
   display: none;
   background: none;
