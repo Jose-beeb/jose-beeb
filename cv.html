@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — José Andrés Acuña Herrera | Ingeniero Mecatrónico</title>
+  <meta name="description" content="Curriculum Vitae completo de José Andrés Acuña Herrera, Ingeniero Mecatrónico especializado en Automatización, Sistemas Embebidos, IoT e Industria 4.0.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --bg-card: rgba(16, 23, 38, 0.95);
+      --bg-card-header: rgba(22, 32, 54, 0.9);
+      --accent-cyan: #00f2fe;
+      --accent-blue: #4facfe;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(0, 242, 254, 0.3);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 30px 16px;
+    }
+
+    .cv-actions-bar {
+      max-width: 900px;
+      margin: 0 auto 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--text-secondary);
+      transform: translateX(-3px);
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #000;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+    }
+
+    .btn-print:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+    }
+
+    .cv-sheet {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .cv-header {
+      padding: 36px 40px;
+      background: var(--bg-card-header);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .cv-header-info h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+
+    .cv-header-info h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin-bottom: 16px;
+    }
+
+    .cv-contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 24px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .cv-contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cv-contact-item i {
+      color: var(--accent-cyan);
+    }
+
+    .cv-contact-item a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .cv-contact-item a:hover {
+      color: var(--accent-cyan);
+      text-decoration: underline;
+    }
+
+    .cv-header-avatar img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent-cyan);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+    }
+
+    .cv-body {
+      padding: 36px 40px;
+    }
+
+    .cv-section {
+      margin-bottom: 32px;
+    }
+
+    .cv-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--border-glow);
+    }
+
+    .cv-section-title i {
+      color: var(--accent-cyan);
+      font-size: 1.1rem;
+    }
+
+    .cv-text {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .cv-text p {
+      margin-bottom: 12px;
+    }
+
+    .cv-text strong {
+      color: var(--text-primary);
+    }
+
+    .cv-skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cv-skill-group {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .cv-skill-group strong {
+      color: var(--text-primary);
+      display: inline-block;
+      min-width: 220px;
+    }
+
+    .cv-timeline-item {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 24px;
+      border-left: 2px solid rgba(0, 242, 254, 0.25);
+    }
+
+    .cv-timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 8px var(--accent-cyan);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .timeline-company {
+      color: var(--accent-cyan);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .timeline-bullets {
+      margin-top: 8px;
+      padding-left: 18px;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    .timeline-bullets li {
+      margin-bottom: 6px;
+    }
+
+    .timeline-bullets a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    .timeline-bullets a:hover {
+      text-decoration: underline;
+    }
+
+    .project-entry {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+
+    .project-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-entry-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .project-entry-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: var(--radius-sm);
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .project-entry-links a:hover {
+      background: var(--accent-cyan);
+      color: #000;
+    }
+
+    .project-entry-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .project-entry-desc strong {
+      color: var(--text-primary);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding: 0 !important;
+      }
+
+      .cv-actions-bar {
+        display: none !important;
+      }
+
+      .cv-sheet {
+        background: #fff !important;
+        border: none !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+      }
+
+      .cv-header {
+        background: #f8fafc !important;
+        border-bottom: 2px solid #cbd5e1 !important;
+        padding: 20px 24px !important;
+      }
+
+      .cv-header-info h1 {
+        color: #0f172a !important;
+      }
+
+      .cv-header-info h2 {
+        color: #0284c7 !important;
+      }
+
+      .cv-contact-list, .cv-contact-item a, .cv-text, .cv-skill-group, .timeline-bullets {
+        color: #334155 !important;
+      }
+
+      .cv-section-title {
+        color: #0f172a !important;
+        border-bottom-color: #0284c7 !important;
+      }
+
+      .cv-section-title i {
+        color: #0284c7 !important;
+      }
+
+      .timeline-title, .project-entry-title, .cv-skill-group strong, .cv-text strong {
+        color: #0f172a !important;
+      }
+
+      .timeline-company {
+        color: #0284c7 !important;
+      }
+
+      .project-entry {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+      }
+
+      .project-entry-links a {
+        border-color: #cbd5e1 !important;
+        color: #0284c7 !important;
+      }
+
+      .cv-body {
+        padding: 24px !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cv-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        padding: 24px 20px;
+      }
+
+      .cv-body {
+        padding: 24px 20px;
+      }
+
+      .cv-skill-group strong {
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="cv-actions-bar">
+    <a href="./index.html" class="btn-action btn-back">
+      <i class="fa-solid fa-arrow-left"></i> Volver al Portafolio
+    </a>
+    <div style="display: flex; gap: 10px;">
+      <a href="./cv.md" class="btn-action btn-back" title="Ver archivo Markdown crudo">
+        <i class="fa-brands fa-markdown"></i> Ver Raw Markdown
+      </a>
+      <button onclick="window.print()" class="btn-action btn-print">
+        <i class="fa-solid fa-print"></i> Guardar como PDF / Imprimir
+      </button>
+    </div>
+  </div>
+
+  <!-- Main CV Container -->
+  <main class="cv-sheet">
+    <!-- Header -->
+    <header class="cv-header">
+      <div class="cv-header-info">
+        <h1>José Andrés Acuña Herrera</h1>
+        <h2>Ingeniero Mecatrónico | Automatización, Sistemas Embebidos, IoT & Liderazgo Técnico</h2>
+        <div class="cv-contact-list">
+          <div class="cv-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Sangolquí / Quito, Ecuador</span>
+          </div>
+          <div class="cv-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+593998479829">+593 99 847 9829</a>
+          </div>
+          <div class="cv-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:jaacunainusa@gmail.com">jaacunainusa@gmail.com</a>
+          </div>
+          <div class="cv-contact-item">
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="https://linkedin.com/in/joseacuñah" target="_blank">linkedin.com/in/joseacuñah</a>
+          </div>
+          <div class="cv-contact-item">
+            <i class="fa-brands fa-github"></i>
+            <a href="https://github.com/jose-beeb" target="_blank">github.com/jose-beeb</a>
+          </div>
+        </div>
+      </div>
+      <div class="cv-header-avatar">
+        <img src="assets/images/profile.png" alt="José Andrés Acuña Herrera" onerror="this.onerror=null; this.src='https://avatars.githubusercontent.com/u/171995231?v=4';">
+      </div>
+    </header>
+
+    <!-- Body -->
+    <div class="cv-body">
+
+      <!-- Profile -->
+      <section class="cv-section">
+        <h3 class="cv-section-title"><i class="fa-solid fa-bullseye"></i> Perfil Profesional</h3>
+        <div class="cv-text">
+          <p>
+            Ingeniero Mecatrónico graduado de la <strong>Universidad de las Fuerzas Armadas ESPE</strong>, especializado en la convergencia entre hardware, control inteligente, automatización industrial y desarrollo de software embebido. Experiencia en diseño de sistemas ciberfísicos, prototipado rápido, modelado 3D e implementación de arquitecturas IoT / SCADA para aplicaciones biomédicas, agrícolas e industriales.
+          </p>
+          <p>
+            Sólida trayectoria de liderazgo internacional en <strong>IEEE</strong>, gestionando ramas estudiantiles, capítulos técnicos (EMBS, RAS) y liderando la sección Ecuador de la competencia global de programación IEEEXtreme. Destacada capacidad analítica, resolución de problemas en entornos de alta exigencia, comunicación asertiva y gestión multicultural de proyectos.
+          </p>
+        </div>
+      </section>
+
+      <!-- Technical Skills -->
+      <section class="cv-section">
+        <h3 class="cv-section-title"><i class="fa-solid fa-microchip"></i> Habilidades Técnicas y Competencias</h3>
+        <div class="cv-skills-grid">
+          <div class="cv-skill-group">
+            <strong>Automatización y Control:</strong>
+            Siemens S7-1200 / S7-1500, TIA Portal (SCL/KOP), Factory I/O, HMI (Kinco DTools v4.5.6), Ignition SCADA, OPC UA, Node-RED, FlexSim, LabVIEW, VNC Viewer.
+          </div>
+          <div class="cv-skill-group">
+            <strong>Sistemas Embebidos e IoT:</strong>
+            ESP32, ESP8266, Raspberry Pi 5, LoRa / LoRaWAN, protocolos I2C, SPI, UART, encoders magnéticos (AS5600), celdas de carga (HX711), sensores ambientales y telemetría.
+          </div>
+          <div class="cv-skill-group">
+            <strong>Control, Robótica y Simulación:</strong>
+            ROS 2, MATLAB & Simulink, Simscape, Multibody, Control Difuso (Fuzzy Logic), Machine Learning aplicado (Random Forest, Scikit-learn).
+          </div>
+          <div class="cv-skill-group">
+            <strong>Diseño CAD/CAM/CAE y Electrónica:</strong>
+            Autodesk Inventor, SolidWorks, ANSYS (Diseño Mecánico), AutoCAD Electrical, KiCad, Proteus, Multisim, Impresión 3D FDM (Bambu Lab / Creality), corte y grabado láser.
+          </div>
+          <div class="cv-skill-group">
+            <strong>Programación y Análisis de Datos:</strong>
+            Python (FastAPI, NumPy, Pandas), C, C++ (Arduino / ESP-IDF), MATLAB, Microsoft Excel (Avanzado), Power BI (Básico), Git & GitHub.
+          </div>
+          <div class="cv-skill-group">
+            <strong>Competencias Interpersonales:</strong>
+            Liderazgo de equipos multidisciplinarios, gestión ágil de proyectos, resolución analítica de problemas, comunicación multicultural y diagnóstico técnico.
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="cv-section">
+        <h3 class="cv-section-title"><i class="fa-solid fa-briefcase"></i> Experiencia Profesional</h3>
+        
+        <div class="cv-timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Pasante de Ingeniería Mecatrónica (I+D Aeroespacial)</div>
+            <div class="timeline-date">Mar. 2026 – Jun. 2026 | Sangolquí, Ecuador</div>
+          </div>
+          <div class="timeline-company">CIDFAE — Centro de Investigación y Desarrollo de la Fuerza Aérea Ecuatoriana</div>
+          <ul class="timeline-bullets">
+            <li>Liderazgo técnico en el reacondicionamiento de un horno de curado automático para materiales compuestos (<a href="https://youtube.com/shorts/quRxPrLFzec" target="_blank">Ver Video Demo</a>), ejecutando diagnósticos de potencia y reemplazo de conductores para optimizar la resistencia de contacto.</li>
+            <li>Rediseño y optimización de la interfaz humano-máquina (HMI) en Kinco DTools v4.5.6, reestructurando variables de control y pantallas de gestión de alarmas.</li>
+            <li>Configuración de servicios de comunicación industrial y monitoreo remoto seguro en tiempo real mediante VNC Viewer.</li>
+          </ul>
+        </div>
+
+        <div class="cv-timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Asistente de Área TI</div>
+            <div class="timeline-date">Ene. 2022 – Jun. 2022 | Ecuador</div>
+          </div>
+          <div class="timeline-company">Libresoft S.A.</div>
+          <ul class="timeline-bullets">
+            <li>Recuperación de información crítica en dispositivos de almacenamiento masivo (HDD y SSD).</li>
+            <li>Mantenimiento preventivo y correctivo de infraestructura de cómputo y estaciones de trabajo empresariales.</li>
+          </ul>
+        </div>
+
+        <div class="cv-timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Técnico de Hardware y TI</div>
+            <div class="timeline-date">Sep. 2020 – Nov. 2021 | Lago Agrio, Ecuador</div>
+          </div>
+          <div class="timeline-company">Compukit Integrated Systems</div>
+          <ul class="timeline-bullets">
+            <li>Diagnóstico de anomalías de hardware y soporte correctivo/preventivo en ordenadores y sistemas de impresión.</li>
+            <li>Instalación física y configuración de redes de área local (LAN) y sistemas de videovigilancia CCTV.</li>
+          </ul>
+        </div>
+
+        <div class="cv-timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Participante Internacional Work & Travel (Ride Operator)</div>
+            <div class="timeline-date">2024 – 2025 | Estados Unidos</div>
+          </div>
+          <div class="timeline-company">Santa Cruz Seaside Co. (CA) & Six Flags Great Adventure (NJ)</div>
+          <ul class="timeline-bullets">
+            <li>Operación de atracciones mecánicas de alto volumen y gestión de seguridad bajo estándares internacionales en idioma inglés a tiempo completo.</li>
+            <li>Desarrollo de resiliencia operativa, comunicación intercultural y resolución inmediata de contingencias.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="cv-section">
+        <h3 class="cv-section-title"><i class="fa-solid fa-diagram-project"></i> Proyectos de Ingeniería Destacados</h3>
+
+        <div class="project-entry">
+          <div class="project-entry-title">
+            <span>1. THE GOAT — Sistema Automatizado de Gift Cards & RFID Tap-Beer</span>
+            <div class="project-entry-links">
+              <a href="https://the-goat-giftcards.vercel.app" target="_blank"><i class="fa-solid fa-globe"></i> Live Demo</a>
+            </div>
+          </div>
+          <div class="project-entry-desc">
+            <p><strong>Arquitectura:</strong> Aplicación Web Fullstack en producción (Next.js, React, TypeScript, Vercel) para venta de gift cards digitales y recarga de saldo a manillas RFID en bares de autoservicio cervecero <em>(Código privado/comercial)</em>.</p>
+            <p><strong>Seguridad & RPC:</strong> Supabase (PostgreSQL + RLS), procedimiento RPC atómico <code>redeem_gift_card</code> con bloqueo <code>FOR UPDATE</code> anti-concurrencia y tokens SHA-256 (24 bytes).</p>
+            <p><strong>PWA POS:</strong> Módulo POS con lector QR por cámara (<code>html5-qrcode</code>), Web Audio API, cerrojo anti-rebote y mailing híbrido (Gmail SMTP + Resend API).</p>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-entry-title">
+            <span>2. Sistema Robótico de Almacenamiento & AGV (AS/RS Logístico)</span>
+            <div class="project-entry-links">
+              <a href="https://youtu.be/2pD4KcC07y4" target="_blank"><i class="fa-brands fa-youtube"></i> Video Demo</a>
+            </div>
+          </div>
+          <div class="project-entry-desc">
+            <p><strong>Arquitectura:</strong> Software interactivo de simulación cinemática y monitoreo en Python/PyQt6 para prototipo de almacén automatizado con 3 brazos robóticos y plataforma móvil AGV <em>(Código privado)</em>.</p>
+            <p><strong>Control & Cinemática:</strong> Despacho directo HOME ➔ Casillero, reubicación coordinada entre estaciones, simulación de sensores RFID (A-E) y gestión de seguridad modal.</p>
+            <p><strong>Comunicaciones:</strong> Generación y parseo de tramas JSON de alta velocidad enviadas por puerto serial a microcontroladores.</p>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-entry-title">
+            <span>3. Compukit Taller — Sistema PWA de Gestión Técnica Offline-First</span>
+            <div class="project-entry-links">
+              <a href="https://jose-beeb.github.io/compukit-taller/" target="_blank"><i class="fa-solid fa-globe"></i> App en Vivo</a>
+              <a href="https://github.com/Jose-beeb/compukit-taller" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="project-entry-desc">
+            <p><strong>Arquitectura:</strong> Progressive Web App (PWA) con Service Workers, LocalStorage sync resiliente y diseño adaptable.</p>
+            <p><strong>APIs & Cloud:</strong> Web Speech API para dictado de diagnósticos por voz, compresión Canvas de fotografías y backend serverless en Google Apps Script con Google Drive y Sheets.</p>
+            <p><strong>Automatización:</strong> Generación de comprobantes en PDF con jsPDF y notificaciones vía WhatsApp Deep Links.</p>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-entry-title">
+            <span>4. Dispositivo Robótico para Rehabilitación de Miembro Inferior (Rodilla)</span>
+            <div class="project-entry-links">
+              <a href="https://youtu.be/54CjYQszOWI" target="_blank"><i class="fa-brands fa-youtube"></i> Video Demo</a>
+            </div>
+          </div>
+          <div class="project-entry-desc">
+            <p><strong>Hardware:</strong> Raspberry Pi 5 + ESP32, actuador NEMA 23 con transmisión por husillo de bolas, encoder magnético AS5600 y celda de carga HX711.</p>
+            <p><strong>Control e IA:</strong> Algoritmos de Control Difuso (Fuzzy Logic) para adaptación de carga activa/pasiva y clasificación biomecánica con Random Forest.</p>
+            <p><strong>Simulación:</strong> Modelado dinámico en MATLAB Simulink/Simscape con telemetría en tiempo real.</p>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-entry-title">
+            <span>5. Lora Kipu — Red IoT AgriTech para Monitoreo Microclimático</span>
+          </div>
+          <div class="project-entry-desc">
+            <p><strong>Arquitectura:</strong> Nodos sensoriales autónomos de ultra bajo consumo con microcontroladores ESP32 y transmisión LoRaWAN.</p>
+            <p><strong>Software & IA:</strong> Backend reactivo en Python (FastAPI), modelos predictivos de fitopatologías en cultivos de cacao y dashboards de telemetría.</p>
+          </div>
+        </div>
+
+        <div class="project-entry">
+          <div class="project-entry-title">
+            <span>6. Gemelo Digital & Sistema SCADA para Manufactura Automatizada</span>
+            <div class="project-entry-links">
+              <a href="https://youtube.com/shorts/luxnUp_XqdI" target="_blank"><i class="fa-brands fa-youtube"></i> Video Demo</a>
+            </div>
+          </div>
+          <div class="project-entry-desc">
+            <p><strong>Simulación & PLC:</strong> Simulación integral en Factory I/O conectada vía OPC UA con PLC Siemens S7-1200 / S7-1500 programado en SCL modular.</p>
+            <p><strong>Supervisión:</strong> Dashboard SCADA en Ignition Designer con visualización de estados y métricas operativas (KPIs/OEE).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership -->
+      <section class="cv-section">
+        <h3 class="cv-section-title"><i class="fa-solid fa-users"></i> Liderazgo y Experiencia Internacional</h3>
+        <ul class="timeline-bullets" style="padding-left: 0; list-style: none;">
+          <li style="margin-bottom: 12px;">
+            <strong>Ecuador Section Lead — IEEEXtreme 19.0</strong> <em>(Mar. 2025 – Dic. 2025)</em><br>
+            Coordinación nacional de ramas estudiantiles universitarias para la competencia global de programación, soporte a embajadores y gestión logística técnica.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Presidente / Chair — Rama Estudiantil IEEE ESPE</strong> <em>(Ene. 2025 – Feb. 2026)</em><br>
+            Dirección estratégica de operaciones, gestión de presupuestos, alianzas interinstitucionales y organización de congresos técnicos.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Vicepresidente — IEEE EMBS (Engineering in Medicine and Biology Society) ESPE</strong> <em>(Ene. 2026 – Presente)</em><br>
+            Impulso de iniciativas de bioingeniería, webinars internacionales y proyectos de tecnología médica.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Vicepresidente & Secretario — IEEE RAS (Robotics and Automation Society) ESPE</strong> <em>(Feb. 2024 – Ene. 2025)</em><br>
+            Coordinación de talleres prácticos de robótica móvil, microcontroladores y automatización industrial.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Docente Voluntario — IV y V Olimpiadas Ecuatorianas de Astronomía y Astronáutica</strong> <em>(2021 – 2023)</em><br>
+            Capacitación a estudiantes secundarios en Python básico, estadística y análisis de datos en la Universidad Técnica de Cotopaxi.
+          </li>
+          <li style="margin-bottom: 12px;">
+            <strong>Co-organizador y Relaciones Universitarias — Google DevFest Quito (GDG Ecuador)</strong>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Education & Certifications -->
+      <section class="cv-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div>
+          <h3 class="cv-section-title"><i class="fa-solid fa-graduation-cap"></i> Educación</h3>
+          <p><strong>Ingeniería Mecatrónica</strong> (2020 – 2026)<br>Universidad de las Fuerzas Armadas ESPE — Sangolquí, Ecuador</p>
+          <p style="margin-top: 8px;"><strong>Bachillerato Internacional (IB)</strong> (2020)<br>U.E.F. "Pacífico Cembranos" — Lago Agrio, Ecuador</p>
+        </div>
+        <div>
+          <h3 class="cv-section-title"><i class="fa-solid fa-certificate"></i> Certificaciones & Idiomas</h3>
+          <ul style="padding-left: 18px; font-size: 0.9rem; color: var(--text-secondary);">
+            <li><strong>Global Leadership and Business</strong> — Clare College, Univ. of Cambridge (2025)</li>
+            <li><strong>Taller Internacional EMPRETEC</strong> — ConQuito / UNCTAD (2025)</li>
+            <li><strong>Programa LÍDER LAB 2026</strong> — Líderes para Gobernar</li>
+            <li><strong>Multibody Simulation Onramp</strong> — MathWorks (2026)</li>
+            <li style="margin-top: 6px;"><strong>Idiomas:</strong> Español (Nativo) | Inglés (B2)</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+</body>
+</html>

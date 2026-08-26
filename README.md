@@ -5,10 +5,11 @@
 # 👋 ¡Hola! Soy José Andrés Acuña Herrera
 ### **Ingeniero Mecatrónico | Automatización Industrial, Sistemas Embebidos & IoT**
 
+[![Portafolio Web](https://img.shields.io/badge/🌐_Portafolio_Web-En_Vivo-00f2fe?style=for-the-badge)](https://jose-beeb.github.io/portafolio-/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/joseacuñah)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jose-beeb)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jaacunainusa@gmail.com)
-[![CV Markdown](https://img.shields.io/badge/📄_Ver_CV-Markdown-4CAF50?style=for-the-badge)](./cv.md)
+[![CV Online](https://img.shields.io/badge/📄_Ver_CV-Online-4CAF50?style=for-the-badge)](https://jose-beeb.github.io/portafolio-/cv.html)
 [![Location](https://img.shields.io/badge/Ubicación-Ecuador-007ACC?style=for-the-badge&logo=google-maps&logoColor=white)](https://goo.gl/maps)
 
 <p align="center">
