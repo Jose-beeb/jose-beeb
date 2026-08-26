@@ -69,7 +69,7 @@ Sólida trayectoria de liderazgo internacional en **IEEE**, gestionando ramas es
 * **APIs & Backend:** Web Speech API para dictado por voz de diagnósticos, compresión Canvas para fotos de hardware y backend serverless en Google Apps Script enlazado a Google Drive y Sheets.
 * **Automatización:** Emisión de comprobantes digitales en PDF con jsPDF e integración de notificaciones vía WhatsApp Deep Links.
 
-### 4. Dispositivo Robótico para Rehabilitación de Miembro Inferior (Rodilla) ([Video Demo](https://youtu.be/Myn2MfTO_Dw))
+### 4. Dispositivo Robótico para Rehabilitación de Miembro Inferior (Rodilla) ([Video Demo](https://youtu.be/54CjYQszOWI))
 * **Arquitectura:** Raspberry Pi 5 + ESP32, actuador NEMA 23 con transmisión por husillo de bolas, encoder magnético AS5600, celda de carga con amplificador HX711.
 * **Control e IA:** Algoritmos de Control Difuso (Fuzzy Logic) para adaptación de carga activa/pasiva y clasificación biomecánica con Random Forest.
 * **Validación:** Modelado dinámico en MATLAB Simulink/Simscape con telemetría en tiempo real.

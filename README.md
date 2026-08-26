@@ -107,11 +107,11 @@
       </ul>
     </td>
     <td width="50%" valign="top">
-      <a href="https://youtu.be/Myn2MfTO_Dw"><img src="./assets/images/knee-rehab.png" alt="Rehabilitador de Rodilla" width="100%"/></a>
+      <a href="https://youtu.be/54CjYQszOWI"><img src="./assets/images/knee-rehab.png" alt="Rehabilitador de Rodilla" width="100%"/></a>
       <h3>🦿 Exoesqueleto / Rehabilitador Robótico de Rodilla</h3>
       <p>Dispositivo mecatrónico activo/pasivo para rehabilitación de miembros inferiores con telemetría en tiempo real.</p>
       <ul>
-        <li><b>▶ Video Demo:</b> <a href="https://youtu.be/Myn2MfTO_Dw">Ver Demostración Biomecánica en YouTube</a></li>
+        <li><b>▶ Video Demo:</b> <a href="https://youtu.be/54CjYQszOWI">Ver Demostración Biomecánica en YouTube</a></li>
         <li><b>Hardware:</b> Raspberry Pi 5, ESP32, NEMA 23 + husillo, encoder AS5600 y celda HX711.</li>
         <li><b>Control & IA:</b> Control Difuso adaptativo y clasificación con Random Forest.</li>
         <li><b>Simulación:</b> Modelado dinámico en MATLAB Simulink/Simscape.</li>
