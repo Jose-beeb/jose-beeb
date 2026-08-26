@@ -14,6 +14,7 @@ const translations = {
     "nav.cv": "Curriculum",
 
     // Hero
+    "hero.name": "José Acuña",
     "hero.role": "Ingeniero Mecatrónico",
     "hero.title": "Desarrollo e integración de sistemas mecatrónicos, automatización industrial e IoT.",
     "hero.subtitle": "Graduado de la Universidad de las Fuerzas Armadas ESPE. Especializado en <strong>sistemas embebidos, IoT, automatización industrial (PLC/SCADA) y robótica</strong>, con trayectoria de liderazgo técnico en IEEE.",
@@ -35,6 +36,7 @@ const translations = {
     "terminal.title": "perfil_profesional.json",
     "terminal.key.profile": "perfil",
     "terminal.key.name": "nombre",
+    "terminal.val.name": "José Acuña",
     "terminal.key.title": "titulo",
     "terminal.val.title": "Ingeniero Mecatrónico",
     "terminal.key.university": "universidad",
@@ -217,6 +219,7 @@ const translations = {
     "nav.cv": "Resume",
 
     // Hero
+    "hero.name": "José Acuña",
     "hero.role": "Mechatronics Engineer",
     "hero.title": "Development and integration of mechatronic systems, industrial automation & IoT.",
     "hero.subtitle": "Graduate from Universidad de las Fuerzas Armadas ESPE. Specialized in <strong>embedded systems, IoT, industrial automation (PLC/SCADA), and robotics</strong>, with technical leadership experience in IEEE.",
@@ -238,6 +241,7 @@ const translations = {
     "terminal.title": "professional_profile.json",
     "terminal.key.profile": "profile",
     "terminal.key.name": "name",
+    "terminal.val.name": "José Acuña",
     "terminal.key.title": "degree",
     "terminal.val.title": "Mechatronics Engineer",
     "terminal.key.university": "university",
