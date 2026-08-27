@@ -1287,56 +1287,6 @@ h1, h2, h3, h4 {
   transform: translateY(-2px);
 }
 
-.video-modal-content.is-short {
-  max-width: 420px;
-}
-
-.video-responsive-container {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--border-glow);
-  box-shadow: 0 0 40px rgba(0, 242, 254, 0.25);
-  background: #000;
-}
-
-.video-modal-content.is-short .video-responsive-container {
-  aspect-ratio: 9 / 16;
-  max-height: 75vh;
-}
-
-.video-responsive-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.video-modal-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.6rem;
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
-
-.video-modal-close:hover {
-  color: #ff4b60;
-  transform: scale(1.1);
-}
-
-.video-modal-caption {
-  margin-top: 14px;
-  color: var(--text-primary);
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-}
-
 .badge-private {
   display: inline-flex;
   align-items: center;
