@@ -99,8 +99,8 @@
     },
     "liveDemo": "https://jose-beeb.github.io/compukit-taller/",
     "videoDemo": null,
-    "repoUrl": "https://github.com/Jose-beeb/compukit-taller",
-    "isPrivate": false,
+    "repoUrl": null,
+    "isPrivate": true,
     "description": {
       "es": "Aplicación web progresiva para recepción y seguimiento de soporte técnico de hardware con arquitectura sin conexión, dictado por voz y sincronización en la nube.",
       "en": "Progressive web application for hardware technical support tracking with offline-first architecture, voice dictation, and Google cloud sync."
