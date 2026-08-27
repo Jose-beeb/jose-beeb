@@ -3,6 +3,10 @@
     "id": "goat",
     "category": "pwa",
     "image": "assets/images/the-goat.png",
+    "imageAlt": {
+      "es": "Interfaz web de THE GOAT para venta online de tarjetas de regalo y plataforma PWA con lector QR para manillas RFID",
+      "en": "THE GOAT web interface for digital gift cards and cashier POS PWA with QR scanner for RFID wristbands"
+    },
     "badgeIcon": "fa-solid fa-beer-mug-empty",
     "badgeText": {
       "es": "Plataforma Web & RFID",
@@ -43,6 +47,10 @@
     "id": "storage-agv",
     "category": "robotics",
     "image": "assets/images/agv-storage.png",
+    "imageAlt": {
+      "es": "Interfaz de control cinemático en Python PyQt6 y simulación de almacén automatizado con brazos robóticos y AGV",
+      "en": "Kinematic control interface in Python PyQt6 for automated storage and retrieval system with robotic arms and AGV"
+    },
     "badgeIcon": "fa-solid fa-robot",
     "badgeText": {
       "es": "Almacén Automatizado + AGV",
@@ -88,6 +96,10 @@
     "id": "compukit",
     "category": "pwa",
     "image": "assets/images/compukit.png",
+    "imageAlt": {
+      "es": "Aplicación web progresiva Compukit Taller con dictado por voz y gestión de soporte técnico de hardware",
+      "en": "Compukit Workshop progressive web app for hardware technical service tracking with voice dictation"
+    },
     "badgeIcon": "fa-solid fa-mobile-screen",
     "badgeText": {
       "es": "PWA & Modo Offline",
@@ -128,6 +140,10 @@
     "id": "knee-rehab",
     "category": "robotics",
     "image": "assets/images/knee-rehab.png",
+    "imageAlt": {
+      "es": "Prototipo de dispositivo mecatrónico para rehabilitación activa y pasiva de rodilla con sensores AS5600 y HX711",
+      "en": "Mechatronic prototype for active and passive knee rehabilitation with AS5600 encoder and HX711 load cell"
+    },
     "badgeIcon": "fa-solid fa-person-walking",
     "badgeText": {
       "es": "Biomecatrónica & Control",
@@ -173,6 +189,10 @@
     "id": "lora-kipu",
     "category": "iot",
     "image": "assets/images/lora-kipu.jpg",
+    "imageAlt": {
+      "es": "Render del nodo sensor IoT inalámbrico Lora Kipu con comunicación LoRaWAN para monitoreo agrícola de cacao",
+      "en": "3D render of Lora Kipu wireless IoT sensor node with LoRaWAN for agricultural microclimate monitoring"
+    },
     "badgeIcon": "fa-solid fa-seedling",
     "badgeText": {
       "es": "Monitoreo Agrícola & IoT (Render)",
@@ -213,6 +233,10 @@
     "id": "scada-twin",
     "category": "automation",
     "image": "assets/images/scada-twin1.png",
+    "imageAlt": {
+      "es": "Panel de supervisión SCADA en Ignition y gemelo digital de manufactura industrial con PLC Siemens S7-1200",
+      "en": "Ignition SCADA supervisory dashboard and industrial manufacturing digital twin with Siemens S7-1200 PLC"
+    },
     "badgeIcon": "fa-solid fa-gears",
     "badgeText": {
       "es": "Industria 4.0 & SCADA",
@@ -258,6 +282,10 @@
     "id": "cidfae-oven",
     "category": "aerospace",
     "image": "assets/images/cidfae-oven.png",
+    "imageAlt": {
+      "es": "Pantalla de interfaz HMI Kinco DTools y cuadro de potencia del horno de curado de compuestos aeroespaciales CIDFAE",
+      "en": "Kinco DTools HMI control screen and power cabinet for CIDFAE aerospace composite curing oven"
+    },
     "badgeIcon": "fa-solid fa-plane-departure",
     "badgeText": {
       "es": "I+D Aeroespacial",

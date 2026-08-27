@@ -392,9 +392,11 @@ function renderDynamicProjects() {
       `;
     }
 
+    const altText = (proj.imageAlt && (proj.imageAlt[currentLang] || proj.imageAlt['es'])) || titleText;
+
     card.innerHTML = `
       <div class="project-card-banner has-photo" onclick="openProjectModal('${proj.id}')" title="Click para ver imagen, video o probar aplicación">
-        <img src="${proj.image}" alt="${escapeHtml(titleText)}" class="project-banner-img" loading="lazy" decoding="async">
+        <img src="${proj.image}" alt="${escapeHtml(altText)}" class="project-banner-img" loading="lazy" decoding="async">
         <div class="banner-action-overlay">
           <div class="overlay-btn-group">
             ${overlayButtonsHtml}
@@ -484,9 +486,10 @@ function openProjectModal(projId) {
   const titleText = proj.title[currentLang] || proj.title['es'];
   const descText = proj.description[currentLang] || proj.description['es'];
   const badgeText = proj.badgeText[currentLang] || proj.badgeText['es'];
+  const altText = (proj.imageAlt && (proj.imageAlt[currentLang] || proj.imageAlt['es'])) || titleText;
 
   // Media
-  mediaContainer.innerHTML = `<img src="${proj.image}" alt="${escapeHtml(titleText)}">`;
+  mediaContainer.innerHTML = `<img src="${proj.image}" alt="${escapeHtml(altText)}">`;
 
   // Details
   badgeEl.innerHTML = `<i class="${proj.badgeIcon}"></i> ${badgeText}`;
