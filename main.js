@@ -937,19 +937,31 @@ function initHeroParticles() {
 }
 
 /* ==========================================================================
-   DYNAMIC INSTAGRAM-STYLE AVATAR FLIP (Tap & Swipe 3D Coin-flip)
+   DYNAMIC INSTAGRAM-STYLE AVATAR FLIP (Initial Spin, Hover & Touch Flip)
    ========================================================================== */
 function initProfile360() {
   const avatarRing = document.getElementById('profile-360');
+  const avatarInner = document.getElementById('profile-360-inner');
   if (!avatarRing) return;
+
+  // 1. Giro 360° al cargar la página para mostrar que es interactivo
+  if (avatarInner) {
+    setTimeout(() => {
+      avatarInner.classList.add('initial-spin');
+      setTimeout(() => {
+        avatarInner.classList.remove('initial-spin');
+      }, 1400);
+    }, 500);
+  }
 
   function toggleFlip() {
     avatarRing.classList.toggle('is-flipped');
   }
 
+  // Click/Tap toggle
   avatarRing.addEventListener('click', toggleFlip);
 
-  // Touch Swipe Gesture support (like Instagram dynamic avatar)
+  // Touch Swipe Gesture support (para móviles)
   let touchStartX = 0;
   avatarRing.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;

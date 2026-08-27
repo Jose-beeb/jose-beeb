@@ -524,8 +524,27 @@ h1, h2, h3, h4 {
   transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* Hover flip & active toggle flip */
+.instagram-avatar-ring:hover .instagram-avatar-inner,
 .instagram-avatar-ring.is-flipped .instagram-avatar-inner {
   transform: rotateY(180deg);
+}
+
+/* Initial 360° Spin on page load */
+@keyframes avatarInitialSpin {
+  0% {
+    transform: rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: rotateY(180deg) scale(1.12);
+  }
+  100% {
+    transform: rotateY(360deg) scale(1);
+  }
+}
+
+.instagram-avatar-inner.initial-spin {
+  animation: avatarInitialSpin 1.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .avatar-side {
