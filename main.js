@@ -356,7 +356,7 @@ function renderDynamicProjects() {
 
     card.innerHTML = `
       <div class="project-card-banner has-photo">
-        <img src="${proj.image}" alt="${escapeHtml(titleText)}" class="project-banner-img" onclick="openImageModal(this.src, '${escapeHtml(titleText)}')">
+        <img src="${proj.image}" alt="${escapeHtml(titleText)}" class="project-banner-img" loading="lazy" decoding="async" onclick="openImageModal(this.src, '${escapeHtml(titleText)}')">
         <div class="project-badge"><i class="${proj.badgeIcon}"></i> ${badgeText}</div>
       </div>
       <div class="project-card-body">
