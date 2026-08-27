@@ -773,17 +773,30 @@ function initHeroParticles() {
 }
 
 /* ==========================================================================
-   PROFILE 360° FLIP LOGIC (Formal vs. Informal)
+   DYNAMIC INSTAGRAM-STYLE AVATAR FLIP (Tap & Swipe 3D Coin-flip)
    ========================================================================== */
 function initProfile360() {
-  const profileContainer = document.getElementById('profile-360');
-  if (!profileContainer) return;
+  const avatarRing = document.getElementById('profile-360');
+  if (!avatarRing) return;
 
-  profileContainer.addEventListener('click', () => {
-    profileContainer.classList.toggle('is-flipped');
-    const isFlipped = profileContainer.classList.contains('is-flipped');
-    showToast(isFlipped ? 'Modo: Líder Comunitario & Tech Explorer (360°)' : 'Modo: Ingeniero Mecatrónico Formal (360°)');
-  });
+  function toggleFlip() {
+    avatarRing.classList.toggle('is-flipped');
+  }
+
+  avatarRing.addEventListener('click', toggleFlip);
+
+  // Touch Swipe Gesture support (like Instagram dynamic avatar)
+  let touchStartX = 0;
+  avatarRing.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  avatarRing.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    if (Math.abs(touchEndX - touchStartX) > 20) {
+      toggleFlip();
+    }
+  }, { passive: true });
 }
 
 /* ==========================================================================

@@ -21,7 +21,7 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <link rel="stylesheet" href="styles.css?v=8.0">
+  <link rel="stylesheet" href="styles.css?v=9.0">
 </head>
 <body>
 
@@ -78,21 +78,18 @@
       <div class="container hero-container">
         <div class="hero-content">
           <div class="hero-profile-row">
-            <!-- 360 Profile Flip Card (Formal / Informal) -->
-            <div class="profile-360-container" id="profile-360" style="width: 68px; height: 68px; min-width: 68px; min-height: 68px; max-width: 68px; max-height: 68px; position: relative;" title="Click para girar 360° entre perfil Formal e Informal">
-              <div class="profile-360-inner" id="profile-360-inner">
-                <!-- Front: Formal Profile -->
-                <div class="profile-360-face profile-face-formal">
-                  <img src="assets/images/profile.png" alt="José Acuña - Perfil Formal" class="profile-avatar-img" style="width: 64px; height: 64px; object-fit: cover; border-radius: 50%; display: block;" onerror="this.onerror=null; this.src='https://avatars.githubusercontent.com/u/171995231?v=4';">
-                  <span class="profile-mode-badge formal">Formal</span>
+            <!-- Dynamic Avatar Flip (Instagram-style 3D Coin-flip) -->
+            <div class="instagram-avatar-ring" id="profile-360" role="button" aria-label="Tocar o deslizar para girar foto de perfil" title="Tocar o deslizar para girar foto de perfil">
+              <div class="instagram-avatar-inner" id="profile-360-inner">
+                <!-- Front Side -->
+                <div class="avatar-side side-front">
+                  <img src="assets/images/profile.png" alt="José Acuña" class="avatar-photo" onerror="this.onerror=null; this.src='https://avatars.githubusercontent.com/u/171995231?v=4';">
                 </div>
-                <!-- Back: Informal Profile (Leader IEEE / Tech Explorer) -->
-                <div class="profile-360-face profile-face-informal">
-                  <img src="assets/images/profile-informal.jpg" alt="José Acuña - Perfil Informal" class="profile-avatar-img" style="width: 64px; height: 64px; object-fit: cover; border-radius: 50%; display: block;" onerror="this.onerror=null; this.src='assets/images/profile-informal.png';">
-                  <span class="profile-mode-badge informal">Informal</span>
+                <!-- Back Side (Alternate Casual Pose / Leader) -->
+                <div class="avatar-side side-back">
+                  <img src="assets/images/profile-informal.jpg" alt="José Acuña" class="avatar-photo" onerror="this.onerror=null; this.src='assets/images/profile-informal.png';">
                 </div>
               </div>
-              <div class="profile-rotate-hint"><i class="fa-solid fa-rotate"></i> 360°</div>
             </div>
             <div>
               <h2 style="font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 2px;" data-i18n="hero.name">José Acuña</h2>
@@ -944,7 +941,7 @@
     <span class="bubble-tag">¡Escribime!</span>
   </a>
 
-  <script src="translations.js?v=8.0"></script>
-  <script src="main.js?v=8.0"></script>
+  <script src="translations.js?v=9.0"></script>
+  <script src="main.js?v=9.0"></script>
 </body>
 </html>
