@@ -1,8 +1,7 @@
-/**
- * Main JavaScript logic for José Andrés Acuña Portfolio
- */
+const APP_VERSION = '11.0.0';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initVersionSync();
   initI18n();
   initNavbarScroll();
   initMobileMenu();
@@ -15,6 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroParticles();
   initProjectModalListeners();
 });
+
+/**
+ * Version Synchronization Controller (Preserves user preferences/sessions)
+ */
+function initVersionSync() {
+  try {
+    const savedVersion = localStorage.getItem('portfolio_app_version');
+    if (!savedVersion || savedVersion !== APP_VERSION) {
+      localStorage.setItem('portfolio_app_version', APP_VERSION);
+      // Log version upgrade cleanly without wiping user preferences (e.g. language)
+      console.log(`%c[Portfolio] Versión sincronizada: v${APP_VERSION}`, 'color: #00f2fe; font-weight: bold;');
+    }
+  } catch (e) {
+    // Fallback for sandboxed iframes/strict storage modes
+  }
+}
 
 /**
  * Internationalization (i18n) Engine & Language Auto-Detection
