@@ -166,69 +166,79 @@ h1, h2, h3, h4 {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 8px;
 }
 
 .nav-link {
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-secondary);
-  transition: var(--transition-fast);
+  transition: all var(--transition-fast);
   position: relative;
-  padding: 4px 6px;
+  padding: 7px 12px;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-link .nav-text {
+  display: none;
 }
 
 .nav-link i {
-  font-size: 0.9rem;
+  font-size: 1.15rem;
   color: var(--accent-cyan);
-  opacity: 0.8;
+  opacity: 0.9;
+  transition: transform var(--transition-fast);
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.14);
+  border-color: rgba(0, 242, 254, 0.35);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  transform: translateY(-2px);
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--text-gradient);
-  transition: width var(--transition-fast);
-  border-radius: var(--radius-full);
-}
-
-.nav-link:hover::after, .nav-link.active::after {
-  width: 100%;
+.nav-link:hover i {
+  transform: scale(1.15);
+  opacity: 1;
 }
 
 .btn-nav-cv {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 7px 14px;
   background: rgba(0, 242, 254, 0.1);
   border: 1px solid rgba(0, 242, 254, 0.3);
   border-radius: var(--radius-full);
   color: var(--accent-cyan);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
   transition: var(--transition-fast);
 }
 
+.btn-nav-cv .nav-text {
+  display: none;
+}
+
 .btn-nav-cv:hover {
   background: var(--accent-cyan);
   color: #000;
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+  box-shadow: 0 0 18px rgba(0, 242, 254, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-nav-game .nav-text {
+  display: none;
 }
 
 /* Nav Top Social Links */
