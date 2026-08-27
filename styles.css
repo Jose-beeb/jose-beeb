@@ -490,13 +490,6 @@ h1, h2, h3, h4 {
   margin-bottom: 24px;
 }
 
-/* 360 Profile Avatar (Formal / Informal 3D Flip) */
-.profile-360-container {
-  width: 64px;
-  height: 64px;
-  perspective: 1000px;
-  cursor: pointer;
-  position: relative;
 /* Instagram-Style Dynamic 3D Avatar Flip */
 .instagram-avatar-ring {
   width: 68px;
@@ -1292,8 +1285,6 @@ h1, h2, h3, h4 {
   background: rgba(255, 255, 255, 0.16);
   border-color: #fff;
   transform: translateY(-2px);
-}
-  animation: zoomModal 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .video-modal-content.is-short {
