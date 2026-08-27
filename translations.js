@@ -91,7 +91,7 @@ const translations = {
     // Flipbook 3D Section
     "flipbook.tag": "Bitácora Editorial 3D",
     "flipbook.title": "Catálogo Táctil de Ingeniería & I+D",
-    "flipbook.description": "Experiencia editorial interactiva tipo libro abierto. Deslizá o arrastrá las hojas con el ratón o en pantalla táctil para hojear los capítulos técnicos.",
+    "flipbook.description": "Experiencia editorial interactiva tipo libro abierto. Desliza o arrastra las hojas con el ratón o en pantalla táctil para hojear los capítulos técnicos.",
 
     // Project 1: THE GOAT
     "project.goat.badge": "Plataforma Web & RFID",
@@ -202,13 +202,13 @@ const translations = {
 
     // Contact Section
     "contact.tag": "Comuniquémonos",
-    "contact.title": "¿Tenés un proyecto o querés sumar talento a tu equipo?",
+    "contact.title": "¿Tienes un proyecto o buscas incorporar talento a tu equipo?",
     "contact.desc": "Estoy abierto a oportunidades en ingeniería mecatrónica, desarrollo de sistemas IoT, automatización industrial, control y liderazgo técnico.",
     "contact.email.label": "Correo Principal",
     "contact.location.label": "Ubicación",
     "contact.location.val": "Sangolquí / Quito, Ecuador",
-    "contact.cv_banner.title": "¿Querés revisar el historial detallado de mi trayectoria?",
-    "contact.cv_banner.desc": "Podés consultar el CV interactivo completo con opción de exportar a PDF o ver el archivo Markdown.",
+    "contact.cv_banner.title": "¿Deseas revisar el historial detallado de mi trayectoria?",
+    "contact.cv_banner.desc": "Puedes consultar el CV interactivo completo con opción de exportar a PDF o ver el archivo Markdown.",
     "contact.cv_banner.btn": "Abrir Curriculum Vitae",
 
     // Footer

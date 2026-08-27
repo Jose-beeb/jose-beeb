@@ -553,7 +553,7 @@ function openVideoModal(videoParam, title) {
   const currentLang = window.currentLanguage || 'es';
   badgeEl.innerHTML = `<i class="fa-solid fa-play"></i> Video Demostrativo`;
   titleEl.textContent = title || 'Demostración de Funcionamiento';
-  descEl.textContent = currentLang === 'en' ? 'Watch engineering prototype in action.' : 'Observá el funcionamiento del prototipo mecatrónico y suite de control en tiempo real.';
+  descEl.textContent = currentLang === 'en' ? 'Watch engineering prototype in action.' : 'Observa el funcionamiento del prototipo mecatrónico y suite de control en tiempo real.';
   actionsEl.innerHTML = '';
 
   playModalVideo(videoParam);
