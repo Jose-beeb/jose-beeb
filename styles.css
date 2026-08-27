@@ -681,11 +681,19 @@ h1, h2, h3, h4 {
 }
 
 .terminal-body {
-  padding: 20px;
+  padding: 18px 20px;
   font-family: var(--font-mono);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   line-height: 1.6;
   overflow-x: auto;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.terminal-body pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .json-key { color: #38bdf8; }
