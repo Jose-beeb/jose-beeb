@@ -140,6 +140,8 @@ h1, h2, h3, h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  max-width: 1440px;
 }
 
 .nav-logo {
@@ -1696,37 +1698,46 @@ h1, h2, h3, h4 {
 }
 
 /* Responsive Media Queries */
-/* Tablet & Small Laptops (1024px range): Keep icons, hide text to avoid squishing */
-@media (max-width: 1180px) and (min-width: 901px) {
+/* Laptops, Desktops & Tablets (<= 1620px): Keep icons, hide text to avoid any overflow */
+@media (max-width: 1620px) and (min-width: 901px) {
   .nav-menu {
     gap: 8px;
   }
 
   .nav-link {
-    padding: 6px 10px;
-    font-size: 0.82rem;
-    border-radius: var(--radius-sm);
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-link:hover, .nav-link.active {
+    background: rgba(0, 242, 254, 0.12);
+    border-color: rgba(0, 242, 254, 0.3);
   }
 
   .nav-link .nav-text,
   .btn-nav-cv .nav-text,
   .btn-nav-game .nav-text {
-    display: none;
+    display: none !important;
   }
 
   .nav-link i,
   .btn-nav-cv i,
   .btn-nav-game i {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     margin: 0;
+    opacity: 1;
   }
 
   .btn-nav-cv, .btn-nav-game {
-    padding: 6px 10px;
+    padding: 7px 14px;
   }
 
   .nav-social-group {
-    display: none; /* Keep clean space at 1024px */
+    display: flex;
+    gap: 6px;
   }
 }
 
