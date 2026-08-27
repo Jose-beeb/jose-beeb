@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initScrollReveal();
   initHeroParticles();
+  initProjectModalListeners();
 });
 
 /**
@@ -323,19 +324,41 @@ function renderDynamicProjects() {
     // Tech Tags
     const tagsHtml = proj.techTags.map(t => `<span>${t}</span>`).join('');
 
+    // Overlay Action Buttons on Banner Hover
+    let overlayButtonsHtml = '';
+    if (proj.liveDemo) {
+      overlayButtonsHtml += `
+        <a href="${proj.liveDemo}" target="_blank" class="overlay-action-btn demo" onclick="event.stopPropagation()">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span>${currentLang === 'en' ? 'Live App' : 'Probar App'}</span>
+        </a>
+      `;
+    }
+    if (proj.videoDemo) {
+      overlayButtonsHtml += `
+        <button class="overlay-action-btn video" onclick="event.stopPropagation(); openVideoModal('${proj.videoDemo}', '${escapeHtml(titleText)}')">
+          <i class="fa-solid fa-play"></i> <span>${currentLang === 'en' ? 'Watch Demo' : 'Ver Video'}</span>
+        </button>
+      `;
+    }
+    overlayButtonsHtml += `
+      <button class="overlay-action-btn expand" onclick="openProjectModal('${proj.id}')">
+        <i class="fa-solid fa-expand"></i> <span>${currentLang === 'en' ? 'Preview' : 'Detalles'}</span>
+      </button>
+    `;
+
     // Actions (Live Demo, Video Demo, Repo, Private badge)
     let actionButtonsHtml = '';
     if (proj.liveDemo) {
       actionButtonsHtml += `
         <a href="${proj.liveDemo}" target="_blank" class="btn-live-demo" title="Probar Aplicación en Vivo">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn.view_app">${currentLang === 'en' ? 'Live demo' : 'Ver aplicación'}</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btn.view_app">${currentLang === 'en' ? 'Live Demo' : 'Probar Demo'}</span>
         </a>
       `;
     }
     if (proj.videoDemo) {
       actionButtonsHtml += `
         <button class="btn-video-demo" onclick="openVideoModal('${proj.videoDemo}', '${escapeHtml(titleText)}')">
-          <i class="fa-solid fa-play"></i> <span data-i18n="btn.view_video">${currentLang === 'en' ? 'Watch video' : 'Ver video'}</span>
+          <i class="fa-solid fa-play"></i> <span data-i18n="btn.view_video">${currentLang === 'en' ? 'Watch Video' : 'Ver Video'}</span>
         </button>
       `;
     }
@@ -355,8 +378,13 @@ function renderDynamicProjects() {
     }
 
     card.innerHTML = `
-      <div class="project-card-banner has-photo">
-        <img src="${proj.image}" alt="${escapeHtml(titleText)}" class="project-banner-img" loading="lazy" decoding="async" onclick="openImageModal(this.src, '${escapeHtml(titleText)}')">
+      <div class="project-card-banner has-photo" onclick="openProjectModal('${proj.id}')" title="Click para ver imagen, video o probar aplicación">
+        <img src="${proj.image}" alt="${escapeHtml(titleText)}" class="project-banner-img" loading="lazy" decoding="async">
+        <div class="banner-action-overlay">
+          <div class="overlay-btn-group">
+            ${overlayButtonsHtml}
+          </div>
+        </div>
         <div class="project-badge"><i class="${proj.badgeIcon}"></i> ${badgeText}</div>
       </div>
       <div class="project-card-body">
@@ -419,6 +447,127 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+/* ==========================================================================
+   UNIVERSAL PROJECT PREVIEW & VIDEO MODAL LOGIC
+   ========================================================================== */
+function openProjectModal(projId) {
+  const proj = projectsData.find(p => p.id === projId);
+  if (!proj) return;
+
+  const modal = document.getElementById('project-preview-modal');
+  const mediaContainer = document.getElementById('project-modal-media');
+  const badgeEl = document.getElementById('project-modal-badge');
+  const titleEl = document.getElementById('project-modal-title');
+  const descEl = document.getElementById('project-modal-desc');
+  const actionsEl = document.getElementById('project-modal-actions');
+
+  if (!modal || !mediaContainer) return;
+
+  const currentLang = window.currentLanguage || 'es';
+  const titleText = proj.title[currentLang] || proj.title['es'];
+  const descText = proj.description[currentLang] || proj.description['es'];
+  const badgeText = proj.badgeText[currentLang] || proj.badgeText['es'];
+
+  // Media
+  mediaContainer.innerHTML = `<img src="${proj.image}" alt="${escapeHtml(titleText)}">`;
+
+  // Details
+  badgeEl.innerHTML = `<i class="${proj.badgeIcon}"></i> ${badgeText}`;
+  titleEl.textContent = titleText;
+  descEl.textContent = descText;
+
+  // Actions inside Modal
+  let actionsHtml = '';
+  if (proj.liveDemo) {
+    actionsHtml += `
+      <a href="${proj.liveDemo}" target="_blank" class="modal-btn-action demo">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> <span>${currentLang === 'en' ? 'Launch Live App' : 'Probar Aplicación en Vivo'}</span>
+      </a>
+    `;
+  }
+  if (proj.videoDemo) {
+    actionsHtml += `
+      <button class="modal-btn-action video" onclick="playModalVideo('${proj.videoDemo}')">
+        <i class="fa-solid fa-play"></i> <span>${currentLang === 'en' ? 'Watch Demo Video' : 'Ver Video Demostrativo'}</span>
+      </button>
+    `;
+  }
+  if (proj.repoUrl) {
+    actionsHtml += `
+      <a href="${proj.repoUrl}" target="_blank" class="modal-btn-action github">
+        <i class="fa-brands fa-github"></i> <span>${currentLang === 'en' ? 'View on GitHub' : 'Ver Código en GitHub'}</span>
+      </a>
+    `;
+  }
+  actionsEl.innerHTML = actionsHtml;
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function playModalVideo(videoParam) {
+  const mediaContainer = document.getElementById('project-modal-media');
+  if (!mediaContainer) return;
+
+  let embedUrl = videoParam;
+  if (!videoParam.startsWith('http')) {
+    embedUrl = `https://www.youtube-nocookie.com/embed/${videoParam}?autoplay=1&rel=0`;
+  } else if (videoParam.includes('youtube.com/watch?v=')) {
+    const vid = videoParam.split('v=')[1]?.split('&')[0];
+    embedUrl = `https://www.youtube-nocookie.com/embed/${vid}?autoplay=1&rel=0`;
+  } else if (videoParam.includes('youtu.be/')) {
+    const vid = videoParam.split('youtu.be/')[1]?.split('?')[0];
+    embedUrl = `https://www.youtube-nocookie.com/embed/${vid}?autoplay=1&rel=0`;
+  }
+
+  mediaContainer.innerHTML = `<iframe src="${embedUrl}" title="Demostración Técnica" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+}
+
+function openVideoModal(videoParam, title) {
+  const modal = document.getElementById('project-preview-modal');
+  const mediaContainer = document.getElementById('project-modal-media');
+  const badgeEl = document.getElementById('project-modal-badge');
+  const titleEl = document.getElementById('project-modal-title');
+  const descEl = document.getElementById('project-modal-desc');
+  const actionsEl = document.getElementById('project-modal-actions');
+
+  if (!modal || !mediaContainer) return;
+
+  const currentLang = window.currentLanguage || 'es';
+  badgeEl.innerHTML = `<i class="fa-solid fa-play"></i> Video Demostrativo`;
+  titleEl.textContent = title || 'Demostración de Funcionamiento';
+  descEl.textContent = currentLang === 'en' ? 'Watch engineering prototype in action.' : 'Observá el funcionamiento del prototipo mecatrónico y suite de control en tiempo real.';
+  actionsEl.innerHTML = '';
+
+  playModalVideo(videoParam);
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+  const modal = document.getElementById('project-preview-modal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  const mediaContainer = document.getElementById('project-modal-media');
+  if (mediaContainer) mediaContainer.innerHTML = '';
+  document.body.style.overflow = '';
+}
+
+function initProjectModalListeners() {
+  const modal = document.getElementById('project-preview-modal');
+  const closeBtn = document.getElementById('btn-close-project-modal');
+  if (closeBtn) closeBtn.addEventListener('click', closeProjectModal);
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeProjectModal();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeProjectModal();
+  });
 }
 
 /**

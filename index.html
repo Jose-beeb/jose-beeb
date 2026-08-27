@@ -21,7 +21,7 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <link rel="stylesheet" href="styles.css?v=9.0">
+  <link rel="stylesheet" href="styles.css?v=10.0">
 </head>
 <body>
 
@@ -916,6 +916,26 @@
     </div>
   </div>
 
+  <!-- Universal Project Preview Lightbox & Video Modal -->
+  <div class="project-modal-backdrop" id="project-preview-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="project-modal-box">
+      <button class="project-modal-close" id="btn-close-project-modal" aria-label="Cerrar vista"><i class="fa-solid fa-xmark"></i></button>
+      <div class="project-modal-media-container" id="project-modal-media">
+        <!-- Dynamically rendered: large image or video -->
+      </div>
+      <div class="project-modal-details">
+        <div class="project-modal-header">
+          <span class="project-modal-badge" id="project-modal-badge"><i class="fa-solid fa-layer-group"></i> Categoría</span>
+          <h3 class="project-modal-title" id="project-modal-title">Título del Proyecto</h3>
+        </div>
+        <p class="project-modal-desc" id="project-modal-desc"></p>
+        <div class="project-modal-actions" id="project-modal-actions">
+          <!-- Dynamically populated action buttons -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Notification -->
   <div class="toast" id="toast">
     <i class="fa-solid fa-check-circle"></i>
@@ -941,7 +961,7 @@
     <span class="bubble-tag">¡Escribime!</span>
   </a>
 
-  <script src="translations.js?v=9.0"></script>
-  <script src="main.js?v=9.0"></script>
+  <script src="translations.js?v=10.0"></script>
+  <script src="main.js?v=10.0"></script>
 </body>
 </html>
