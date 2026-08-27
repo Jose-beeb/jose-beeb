@@ -2,6 +2,7 @@ const APP_VERSION = '11.0.0';
 
 document.addEventListener('DOMContentLoaded', () => {
   initVersionSync();
+  initScrollProgressBar();
   initI18n();
   initNavbarScroll();
   initMobileMenu();
@@ -140,6 +141,33 @@ function setLanguage(lang, savePreference = true) {
   if (typeof renderDynamicProjects === 'function' && projectsData && projectsData.length > 0) {
     renderDynamicProjects();
   }
+}
+
+/**
+ * Real-time Horizontal Scroll Progress Bar
+ */
+function initScrollProgressBar() {
+  const progressBar = document.getElementById('scroll-progress-bar');
+  if (!progressBar) return;
+
+  let ticking = false;
+
+  function updateProgress() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progressPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = `${Math.min(100, Math.max(0, progressPercent))}%`;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateProgress();
 }
 
 /**
